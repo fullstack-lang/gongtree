@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strings"
 
 	gongtree_go "github.com/fullstack-lang/gongtree/go"
 	gongtree_fullstack "github.com/fullstack-lang/gongtree/go/fullstack"
@@ -61,48 +60,7 @@ func main() {
 
 	// setup stack
 	var stage *gongtree_models.StageStruct
-	if *marshallOnCommit != "" {
-		// persistence in a SQLite file on disk in memory
-		stage = gongtree_fullstack.NewStackInstance(r, "github.com/fullstack-lang/gongtree/go/models")
-	} else {
-		// persistence in a SQLite file on disk
-		stage = gongtree_fullstack.NewStackInstance(r, "github.com/fullstack-lang/gongtree/go/models", "./test.db")
-	}
-
-	// generate injection code from the stage
-	if *marshallOnStartup != "" {
-
-		if strings.Contains(*marshallOnStartup, " ") {
-			log.Fatalln(*marshallOnStartup + " must not contains blank spaces")
-		}
-		if strings.ToLower(*marshallOnStartup) != *marshallOnStartup {
-			log.Fatalln(*marshallOnStartup + " must be lowercases")
-		}
-
-		file, err := os.Create(fmt.Sprintf("./%s.go", *marshallOnStartup))
-		if err != nil {
-			log.Fatal(err.Error())
-		}
-		defer file.Close()
-
-		stage.Checkout()
-		stage.Marshall(file, "github.com/fullstack-lang/gongtree/go/models", "main")
-		os.Exit(0)
-	}
-
-	// setup the stage by injecting the code from code database
-	if *unmarshall != "" {
-		stage.Checkout()
-		stage.Reset()
-		stage.Commit()
-		if InjectionGateway[*unmarshall] != nil {
-			InjectionGateway[*unmarshall]()
-		}
-		stage.Commit()
-	} else {
-		// in case the database is used, checkout the content to the stage
-		stage.Checkout()
-	}
+	stage = gongtree_fullstack.NewStackInstance(r, "tree")
 
 	if *unmarshallFromCode != "" {
 		stage.Checkout()

@@ -12,11 +12,12 @@ import * as gongtree from 'gongtree'
 export class AppComponent implements OnInit {
 
   default = 'Gongtree Data/Model'
-  view = this.default
+  tree = "Tree"
+  view = this.tree
 
-  views: string[] = [this.default];
+  views: string[] = [this.tree, this.default];
 
-  GONG__StackPath = "github.com/fullstack-lang/gongtree/go/models"
+  GONG__StackPath = "tree"
 
   constructor(
   ) {
