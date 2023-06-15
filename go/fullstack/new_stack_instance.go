@@ -1,3 +1,4 @@
+// do not modify, generated file
 package fullstack
 
 import (
@@ -44,6 +45,12 @@ func NewStackInstance(
 	}
 
 	controllers.Register(r)
+
+	// add orchestration
+	// insertion point
+	models.SetOrchestratorOnAfterUpdate[models.Button](stage)
+	models.SetOrchestratorOnAfterUpdate[models.Node](stage)
+	models.SetOrchestratorOnAfterUpdate[models.Tree](stage)
 
 	return
 }
