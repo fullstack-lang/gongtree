@@ -39,6 +39,7 @@ func stageInjection(stage *models.StageStruct) {
 	// Declaration of instances to stage
 
 	// Declarations of staged instances of Button
+	__Button__000000_test := (&models.Button{Name: `test`}).Stage(stage)
 
 	// Declarations of staged instances of Node
 	__Node__000000_root := (&models.Node{Name: `root`}).Stage(stage)
@@ -49,6 +50,10 @@ func stageInjection(stage *models.StageStruct) {
 	__Tree__000000_test := (&models.Tree{Name: `test`}).Stage(stage)
 
 	// Setup of values
+
+	// Button values setup
+	__Button__000000_test.Name = `test`
+	__Button__000000_test.Icon = `edit`
 
 	// Node values setup
 	__Node__000000_root.Name = `root`
@@ -80,6 +85,7 @@ func stageInjection(stage *models.StageStruct) {
 	// Setup of pointers
 	__Node__000000_root.Children = append(__Node__000000_root.Children, __Node__000001_test)
 	__Node__000000_root.Children = append(__Node__000000_root.Children, __Node__000002_test2)
+	__Node__000001_test.Buttons = append(__Node__000001_test.Buttons, __Button__000000_test)
 	__Tree__000000_test.RootNodes = append(__Tree__000000_test.RootNodes, __Node__000000_root)
 }
 
