@@ -40,7 +40,4 @@ export class DataModelPanelComponent {
   // GONG__MODEL_StackPath
   @Input() GONG__MODEL__StacksPath: string = ""
 
-
-
-
 }
