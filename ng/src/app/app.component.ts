@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
 
   views: string[] = [this.tree, this.default];
 
-  WorkingStack = "tree"
-  DatamodelStack = "github.com/fullstack-lang/gongtree/go/models"
+  DataStack = "tree"
+  ModelStacks = "github.com/fullstack-lang/gongtree/go/models"
 
   constructor(
   ) {
