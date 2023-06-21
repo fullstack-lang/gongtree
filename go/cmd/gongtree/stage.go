@@ -50,8 +50,11 @@ func stageInjection(stage *models.StageStruct) {
 	// Declarations of staged instances of Node
 	__Node__000000_root := (&models.Node{Name: `root`}).Stage(stage)
 	__Node__000001_root2 := (&models.Node{Name: `root2`}).Stage(stage)
-	__Node__000002_test := (&models.Node{Name: `test`}).Stage(stage)
-	__Node__000003_test2 := (&models.Node{Name: `test2`}).Stage(stage)
+	__Node__000002_root3 := (&models.Node{Name: `root3`}).Stage(stage)
+	__Node__000003_test := (&models.Node{Name: `test`}).Stage(stage)
+	__Node__000004_test2 := (&models.Node{Name: `test2`}).Stage(stage)
+	__Node__000005_test2_1 := (&models.Node{Name: `test2.1`}).Stage(stage)
+	__Node__000006_test3 := (&models.Node{Name: `test3`}).Stage(stage)
 
 	// Declarations of staged instances of Tree
 	__Tree__000000_test := (&models.Tree{Name: `test`}).Stage(stage)
@@ -96,43 +99,70 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000001_root2.Name = `root2`
-	__Node__000001_root2.IsExpanded = false
+	__Node__000001_root2.IsExpanded = true
 	__Node__000001_root2.HasCheckboxButton = false
 	__Node__000001_root2.IsChecked = false
 	__Node__000001_root2.IsCheckboxDisabled = false
 	__Node__000001_root2.IsInEditMode = false
 
 	// Node values setup
-	__Node__000002_test.Name = `test`
-	__Node__000002_test.IsExpanded = false
-	__Node__000002_test.HasCheckboxButton = false
-	__Node__000002_test.IsChecked = false
-	__Node__000002_test.IsCheckboxDisabled = false
-	__Node__000002_test.IsInEditMode = false
+	__Node__000002_root3.Name = `root3`
+	__Node__000002_root3.IsExpanded = false
+	__Node__000002_root3.HasCheckboxButton = false
+	__Node__000002_root3.IsChecked = false
+	__Node__000002_root3.IsCheckboxDisabled = false
+	__Node__000002_root3.IsInEditMode = false
 
 	// Node values setup
-	__Node__000003_test2.Name = `test2`
-	__Node__000003_test2.IsExpanded = false
-	__Node__000003_test2.HasCheckboxButton = false
-	__Node__000003_test2.IsChecked = false
-	__Node__000003_test2.IsCheckboxDisabled = false
-	__Node__000003_test2.IsInEditMode = false
+	__Node__000003_test.Name = `test`
+	__Node__000003_test.IsExpanded = false
+	__Node__000003_test.HasCheckboxButton = true
+	__Node__000003_test.IsChecked = true
+	__Node__000003_test.IsCheckboxDisabled = false
+	__Node__000003_test.IsInEditMode = true
+
+	// Node values setup
+	__Node__000004_test2.Name = `test2`
+	__Node__000004_test2.IsExpanded = false
+	__Node__000004_test2.HasCheckboxButton = true
+	__Node__000004_test2.IsChecked = true
+	__Node__000004_test2.IsCheckboxDisabled = true
+	__Node__000004_test2.IsInEditMode = false
+
+	// Node values setup
+	__Node__000005_test2_1.Name = `test2.1`
+	__Node__000005_test2_1.IsExpanded = false
+	__Node__000005_test2_1.HasCheckboxButton = true
+	__Node__000005_test2_1.IsChecked = true
+	__Node__000005_test2_1.IsCheckboxDisabled = false
+	__Node__000005_test2_1.IsInEditMode = false
+
+	// Node values setup
+	__Node__000006_test3.Name = `test3`
+	__Node__000006_test3.IsExpanded = false
+	__Node__000006_test3.HasCheckboxButton = false
+	__Node__000006_test3.IsChecked = false
+	__Node__000006_test3.IsCheckboxDisabled = false
+	__Node__000006_test3.IsInEditMode = false
 
 	// Tree values setup
 	__Tree__000000_test.Name = `test`
 
 	// Setup of pointers
-	__Node__000000_root.Children = append(__Node__000000_root.Children, __Node__000002_test)
-	__Node__000000_root.Children = append(__Node__000000_root.Children, __Node__000003_test2)
+	__Node__000000_root.Children = append(__Node__000000_root.Children, __Node__000003_test)
+	__Node__000000_root.Children = append(__Node__000000_root.Children, __Node__000004_test2)
 	__Node__000000_root.Buttons = append(__Node__000000_root.Buttons, __Button__000002_dynamic_form)
 	__Node__000000_root.Buttons = append(__Node__000000_root.Buttons, __Button__000003_key)
-	__Node__000002_test.Buttons = append(__Node__000002_test.Buttons, __Button__000006_test)
-	__Node__000002_test.Buttons = append(__Node__000002_test.Buttons, __Button__000005_settings)
-	__Node__000002_test.Buttons = append(__Node__000002_test.Buttons, __Button__000000_arrow_circle_left)
-	__Node__000003_test2.Buttons = append(__Node__000003_test2.Buttons, __Button__000004_logout)
-	__Node__000003_test2.Buttons = append(__Node__000003_test2.Buttons, __Button__000001_dataset)
+	__Node__000001_root2.Children = append(__Node__000001_root2.Children, __Node__000005_test2_1)
+	__Node__000002_root3.Children = append(__Node__000002_root3.Children, __Node__000006_test3)
+	__Node__000003_test.Buttons = append(__Node__000003_test.Buttons, __Button__000006_test)
+	__Node__000003_test.Buttons = append(__Node__000003_test.Buttons, __Button__000005_settings)
+	__Node__000003_test.Buttons = append(__Node__000003_test.Buttons, __Button__000000_arrow_circle_left)
+	__Node__000004_test2.Buttons = append(__Node__000004_test2.Buttons, __Button__000004_logout)
+	__Node__000004_test2.Buttons = append(__Node__000004_test2.Buttons, __Button__000001_dataset)
 	__Tree__000000_test.RootNodes = append(__Tree__000000_test.RootNodes, __Node__000000_root)
 	__Tree__000000_test.RootNodes = append(__Tree__000000_test.RootNodes, __Node__000001_root2)
+	__Tree__000000_test.RootNodes = append(__Tree__000000_test.RootNodes, __Node__000002_root3)
 }
 
 
