@@ -102,7 +102,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000000_.IsCheckboxDisabled = false
 	__Node__000000_.IsInEditMode = false
 	__Node__000000_.IsNodeClickable = false
-	__Node__000000_.IsNodeClicked = false
 
 	// Node values setup
 	__Node__000001_root1.Name = `root1`
@@ -112,7 +111,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000001_root1.IsCheckboxDisabled = false
 	__Node__000001_root1.IsInEditMode = false
 	__Node__000001_root1.IsNodeClickable = false
-	__Node__000001_root1.IsNodeClicked = false
 
 	// Node values setup
 	__Node__000002_root2.Name = `root2`
@@ -122,7 +120,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000002_root2.IsCheckboxDisabled = false
 	__Node__000002_root2.IsInEditMode = false
 	__Node__000002_root2.IsNodeClickable = false
-	__Node__000002_root2.IsNodeClicked = false
 
 	// Node values setup
 	__Node__000003_root3.Name = `root3`
@@ -132,7 +129,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000003_root3.IsCheckboxDisabled = false
 	__Node__000003_root3.IsInEditMode = false
 	__Node__000003_root3.IsNodeClickable = false
-	__Node__000003_root3.IsNodeClicked = false
 
 	// Node values setup
 	__Node__000004_test.Name = `test`
@@ -142,7 +138,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000004_test.IsCheckboxDisabled = false
 	__Node__000004_test.IsInEditMode = true
 	__Node__000004_test.IsNodeClickable = false
-	__Node__000004_test.IsNodeClicked = false
 
 	// Node values setup
 	__Node__000005_test_1_1.Name = `test 1.1`
@@ -152,7 +147,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000005_test_1_1.IsCheckboxDisabled = true
 	__Node__000005_test_1_1.IsInEditMode = false
 	__Node__000005_test_1_1.IsNodeClickable = false
-	__Node__000005_test_1_1.IsNodeClicked = false
 
 	// Node values setup
 	__Node__000006_test_1_2_clickable_.Name = `test 1.2 (clickable)`
@@ -162,7 +156,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000006_test_1_2_clickable_.IsCheckboxDisabled = false
 	__Node__000006_test_1_2_clickable_.IsInEditMode = false
 	__Node__000006_test_1_2_clickable_.IsNodeClickable = true
-	__Node__000006_test_1_2_clickable_.IsNodeClicked = false
 
 	// Node values setup
 	__Node__000007_test_1_3.Name = `test 1.3`
@@ -172,7 +165,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000007_test_1_3.IsCheckboxDisabled = false
 	__Node__000007_test_1_3.IsInEditMode = false
 	__Node__000007_test_1_3.IsNodeClickable = false
-	__Node__000007_test_1_3.IsNodeClicked = false
 
 	// Node values setup
 	__Node__000008_test_1_3_1.Name = `test 1.3.1`
@@ -182,7 +174,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000008_test_1_3_1.IsCheckboxDisabled = false
 	__Node__000008_test_1_3_1.IsInEditMode = false
 	__Node__000008_test_1_3_1.IsNodeClickable = false
-	__Node__000008_test_1_3_1.IsNodeClicked = false
 
 	// Node values setup
 	__Node__000009_test_1_4.Name = `test 1.4`
@@ -192,7 +183,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000009_test_1_4.IsCheckboxDisabled = false
 	__Node__000009_test_1_4.IsInEditMode = false
 	__Node__000009_test_1_4.IsNodeClickable = false
-	__Node__000009_test_1_4.IsNodeClicked = false
 
 	// Node values setup
 	__Node__000010_test2_1.Name = `test2.1`
@@ -202,7 +192,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000010_test2_1.IsCheckboxDisabled = false
 	__Node__000010_test2_1.IsInEditMode = false
 	__Node__000010_test2_1.IsNodeClickable = false
-	__Node__000010_test2_1.IsNodeClicked = false
 
 	// Node values setup
 	__Node__000011_test3.Name = `test3`
@@ -212,7 +201,6 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000011_test3.IsCheckboxDisabled = false
 	__Node__000011_test3.IsInEditMode = false
 	__Node__000011_test3.IsNodeClickable = false
-	__Node__000011_test3.IsNodeClicked = false
 
 	// Tree values setup
 	__Tree__000000_test.Name = `test`
