@@ -248,6 +248,7 @@ export class TreeComponent implements OnInit {
     this.gongtreeNodeService.updateNode(node.gongNode, this.GONG__StackPath).subscribe(
       gongtreeNode => {
         console.log("onNodeClick: updated node")
+        this.refresh() // refresh is necessary because the update loses links to buttons
       }
     )
   }
