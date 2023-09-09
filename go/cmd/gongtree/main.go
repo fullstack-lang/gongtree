@@ -5,26 +5,28 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 
 	gongtree_go "github.com/fullstack-lang/gongtree/go"
+	gongtree_data "github.com/fullstack-lang/gongtree/go/data"
 	gongtree_fullstack "github.com/fullstack-lang/gongtree/go/fullstack"
 	gongtree_models "github.com/fullstack-lang/gongtree/go/models"
+	gongtree_orm "github.com/fullstack-lang/gongtree/go/orm"
 	gongtree_static "github.com/fullstack-lang/gongtree/go/static"
 
 	gongdoc_load "github.com/fullstack-lang/gongdoc/go/load"
 )
 
 var (
-	logDBFlag  = flag.Bool("logDB", false, "log mode for db")
 	logGINFlag = flag.Bool("logGIN", false, "log mode for gin")
 
-	marshallOnStartup  = flag.String("marshallOnStartup", "", "at startup, marshall staged data to a go file with the marshall name and '.go' (must be lowercased without spaces). If marshall arg is '', no marshalling")
 	unmarshallFromCode = flag.String("unmarshallFromCode", "", "unmarshall data from go file and '.go' (must be lowercased without spaces), If unmarshallFromCode arg is '', no unmarshalling")
-	unmarshall         = flag.String("unmarshall", "", "unmarshall data from marshall name and '.go' (must be lowercased without spaces), If unmarshall arg is '', no unmarshalling")
 	marshallOnCommit   = flag.String("marshallOnCommit", "", "on all commits, marshall staged data to a go file with the marshall name and '.go' (must be lowercased without spaces). If marshall arg is '', no marshalling")
 
 	diagrams         = flag.Bool("diagrams", true, "parse/analysis go/models and go/diagrams")
 	embeddedDiagrams = flag.Bool("embeddedDiagrams", false, "parse/analysis go/models and go/embeddedDiagrams")
+
+	port = flag.Int("port", 8080, "port server")
 )
 
 // InjectionGateway is the singloton that stores all functions
@@ -60,7 +62,17 @@ func main() {
 
 	// setup stack
 	var stage *gongtree_models.StageStruct
-	stage = gongtree_fullstack.NewStackInstance(r, "tree")
+	var backRepo *gongtree_orm.BackRepoStruct
+
+	if *marshallOnCommit != "" {
+		// persistence in a SQLite file on disk in memory
+		stage, backRepo = gongtree_fullstack.NewStackInstance(r, "gongtree")
+	} else {
+		// persistence in a SQLite file on disk
+		stage, backRepo = gongtree_fullstack.NewStackInstance(r, "gongtree", "./gongtree.db")
+	}
+
+	gongtree_data.Load(r, gongtree_go.GoModelsDir, "gongtree", stage, backRepo)
 
 	if *unmarshallFromCode != "" {
 		stage.Checkout()
@@ -83,7 +95,7 @@ func main() {
 	// hook automatic marshall to go code at every commit
 	if *marshallOnCommit != "" {
 		hook := new(BeforeCommitImplementation)
-		stage.OnInitCommitFromFrontCallback = hook
+		stage.OnInitCommitCallback = hook
 	}
 
 	gongdoc_load.Load(
@@ -95,6 +107,9 @@ func main() {
 		*embeddedDiagrams,
 		&stage.Map_GongStructName_InstancesNb)
 
-	log.Printf("Server ready serve on localhost:8080")
-	r.Run()
+	log.Printf("Server ready serve on localhost:" + strconv.Itoa(*port))
+	err := r.Run(":" + strconv.Itoa(*port))
+	if err != nil {
+		log.Fatalln(err.Error())
+	}
 }
