@@ -3,8 +3,8 @@ module github.com/fullstack-lang/gongtree
 go 1.21.0
 
 require (
-	github.com/fullstack-lang/gong v0.0.0-20230908235831-0d31f2f7b8fd
-	github.com/fullstack-lang/gongdoc v0.0.0-20230907150824-4a82213ed2a7
+	github.com/fullstack-lang/gong v0.0.0-20230909003756-455ab367969c
+	github.com/fullstack-lang/gongdoc v0.0.0-20230909002503-0def08f186db
 	github.com/fullstack-lang/gongtable v0.0.0-20230908235216-c986d55beb18
 	github.com/fullstack-lang/maticons v0.0.0-20230823061653-70c364fbdd00
 	github.com/gin-contrib/cors v1.4.0
@@ -12,7 +12,7 @@ require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/glebarez/sqlite v1.9.0
 	github.com/tealeg/xlsx/v3 v3.3.0
-	github.com/xuri/excelize/v2 v2.6.1
+	github.com/xuri/excelize/v2 v2.8.0
 	gorm.io/gorm v1.25.4
 )
 
