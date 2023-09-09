@@ -3,9 +3,9 @@ module github.com/fullstack-lang/gongtree
 go 1.21.0
 
 require (
-	github.com/fullstack-lang/gong v0.0.0-20230909003756-455ab367969c
+	github.com/fullstack-lang/gong v0.0.0-20230909005852-e131c1d69ad4
 	github.com/fullstack-lang/gongdoc v0.0.0-20230909002503-0def08f186db
-	github.com/fullstack-lang/gongtable v0.0.0-20230908235216-c986d55beb18
+	github.com/fullstack-lang/gongtable v0.0.0-20230909010039-ab3f84f5b4aa
 	github.com/fullstack-lang/maticons v0.0.0-20230823061653-70c364fbdd00
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-contrib/static v0.0.1
