@@ -223,7 +223,8 @@ func (rowUpdate *RowUpdate[T]) RowUpdated(stage *gongtable.StageStruct, row, upd
 	// insertion point
 	case *models.Button:
 		formGroup := (&gongtable.FormGroup{
-			Name: gongtable.FormGroupDefaultName.ToString(),
+			Name:  gongtable.FormGroupDefaultName.ToString(),
+			Label: "Update Button Form",
 			OnSave: NewButtonFormCallback(
 				instancesTyped,
 				rowUpdate.playground,
@@ -232,7 +233,8 @@ func (rowUpdate *RowUpdate[T]) RowUpdated(stage *gongtable.StageStruct, row, upd
 		FillUpForm(instancesTyped, formGroup, rowUpdate.playground)
 	case *models.Node:
 		formGroup := (&gongtable.FormGroup{
-			Name: gongtable.FormGroupDefaultName.ToString(),
+			Name:  gongtable.FormGroupDefaultName.ToString(),
+			Label: "Update Node Form",
 			OnSave: NewNodeFormCallback(
 				instancesTyped,
 				rowUpdate.playground,
@@ -241,7 +243,8 @@ func (rowUpdate *RowUpdate[T]) RowUpdated(stage *gongtable.StageStruct, row, upd
 		FillUpForm(instancesTyped, formGroup, rowUpdate.playground)
 	case *models.Tree:
 		formGroup := (&gongtable.FormGroup{
-			Name: gongtable.FormGroupDefaultName.ToString(),
+			Name:  gongtable.FormGroupDefaultName.ToString(),
+			Label: "Update Tree Form",
 			OnSave: NewTreeFormCallback(
 				instancesTyped,
 				rowUpdate.playground,

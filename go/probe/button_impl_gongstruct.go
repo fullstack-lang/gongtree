@@ -46,7 +46,8 @@ func (buttonImpl *ButtonImplGongstruct) ButtonUpdated(
 	// insertion point
 	case "Button":
 		formGroup := (&form.FormGroup{
-			Name: form.FormGroupDefaultName.ToString(),
+			Name:  form.FormGroupDefaultName.ToString(),
+			Label: "New Button Form",
 			OnSave: NewButtonFormCallback(
 				nil,
 				buttonImpl.playground,
@@ -56,7 +57,8 @@ func (buttonImpl *ButtonImplGongstruct) ButtonUpdated(
 		FillUpForm(button, formGroup, buttonImpl.playground)
 	case "Node":
 		formGroup := (&form.FormGroup{
-			Name: form.FormGroupDefaultName.ToString(),
+			Name:  form.FormGroupDefaultName.ToString(),
+			Label: "New Node Form",
 			OnSave: NewNodeFormCallback(
 				nil,
 				buttonImpl.playground,
@@ -66,7 +68,8 @@ func (buttonImpl *ButtonImplGongstruct) ButtonUpdated(
 		FillUpForm(node, formGroup, buttonImpl.playground)
 	case "Tree":
 		formGroup := (&form.FormGroup{
-			Name: form.FormGroupDefaultName.ToString(),
+			Name:  form.FormGroupDefaultName.ToString(),
+			Label: "New Tree Form",
 			OnSave: NewTreeFormCallback(
 				nil,
 				buttonImpl.playground,

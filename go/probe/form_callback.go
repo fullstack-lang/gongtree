@@ -20,11 +20,17 @@ func NewButtonFormCallback(
 	buttonFormCallback = new(ButtonFormCallback)
 	buttonFormCallback.playground = playground
 	buttonFormCallback.button = button
+
+	buttonFormCallback.CreationMode = (button == nil)
+
 	return
 }
 
 type ButtonFormCallback struct {
 	button *models.Button
+
+	// If the form call is called on the creation of a new instnace
+	CreationMode bool
 
 	playground *Playground
 }
@@ -61,6 +67,22 @@ func (buttonFormCallback *ButtonFormCallback) OnSave() {
 		buttonFormCallback.playground,
 	)
 	buttonFormCallback.playground.tableStage.Commit()
+
+	// display a new form by reset the form stage
+	if buttonFormCallback.CreationMode {
+		buttonFormCallback.playground.formStage.Reset()
+		newFormGroup := (&table.FormGroup{
+			Name: table.FormGroupDefaultName.ToString(),
+			OnSave: NewAstructFormCallback(
+				nil,
+				buttonFormCallback.playground,
+			),
+		}).Stage(buttonFormCallback.playground.formStage)
+		button := new(models.Astruct)
+		FillUpForm(button, newFormGroup, buttonFormCallback.playground)
+		buttonFormCallback.playground.formStage.Commit()
+	}
+
 }
 func NewNodeFormCallback(
 	node *models.Node,
@@ -69,11 +91,17 @@ func NewNodeFormCallback(
 	nodeFormCallback = new(NodeFormCallback)
 	nodeFormCallback.playground = playground
 	nodeFormCallback.node = node
+
+	nodeFormCallback.CreationMode = (node == nil)
+
 	return
 }
 
 type NodeFormCallback struct {
 	node *models.Node
+
+	// If the form call is called on the creation of a new instnace
+	CreationMode bool
 
 	playground *Playground
 }
@@ -120,6 +148,22 @@ func (nodeFormCallback *NodeFormCallback) OnSave() {
 		nodeFormCallback.playground,
 	)
 	nodeFormCallback.playground.tableStage.Commit()
+
+	// display a new form by reset the form stage
+	if nodeFormCallback.CreationMode {
+		nodeFormCallback.playground.formStage.Reset()
+		newFormGroup := (&table.FormGroup{
+			Name: table.FormGroupDefaultName.ToString(),
+			OnSave: NewAstructFormCallback(
+				nil,
+				nodeFormCallback.playground,
+			),
+		}).Stage(nodeFormCallback.playground.formStage)
+		node := new(models.Astruct)
+		FillUpForm(node, newFormGroup, nodeFormCallback.playground)
+		nodeFormCallback.playground.formStage.Commit()
+	}
+
 }
 func NewTreeFormCallback(
 	tree *models.Tree,
@@ -128,11 +172,17 @@ func NewTreeFormCallback(
 	treeFormCallback = new(TreeFormCallback)
 	treeFormCallback.playground = playground
 	treeFormCallback.tree = tree
+
+	treeFormCallback.CreationMode = (tree == nil)
+
 	return
 }
 
 type TreeFormCallback struct {
 	tree *models.Tree
+
+	// If the form call is called on the creation of a new instnace
+	CreationMode bool
 
 	playground *Playground
 }
@@ -167,4 +217,20 @@ func (treeFormCallback *TreeFormCallback) OnSave() {
 		treeFormCallback.playground,
 	)
 	treeFormCallback.playground.tableStage.Commit()
+
+	// display a new form by reset the form stage
+	if treeFormCallback.CreationMode {
+		treeFormCallback.playground.formStage.Reset()
+		newFormGroup := (&table.FormGroup{
+			Name: table.FormGroupDefaultName.ToString(),
+			OnSave: NewAstructFormCallback(
+				nil,
+				treeFormCallback.playground,
+			),
+		}).Stage(treeFormCallback.playground.formStage)
+		tree := new(models.Astruct)
+		FillUpForm(tree, newFormGroup, treeFormCallback.playground)
+		treeFormCallback.playground.formStage.Commit()
+	}
+
 }
