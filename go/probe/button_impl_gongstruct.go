@@ -97,6 +97,7 @@ func FillUpForm[T models.Gongstruct](
 	case *models.Node:
 		// insertion point
 		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, playground.formStage, formGroup)
+		BasicFieldtoForm("IsHighlighted", instanceWithInferedType.IsHighlighted, instanceWithInferedType, playground.formStage, formGroup)
 		BasicFieldtoForm("IsExpanded", instanceWithInferedType.IsExpanded, instanceWithInferedType, playground.formStage, formGroup)
 		BasicFieldtoForm("HasCheckboxButton", instanceWithInferedType.HasCheckboxButton, instanceWithInferedType, playground.formStage, formGroup)
 		BasicFieldtoForm("IsChecked", instanceWithInferedType.IsChecked, instanceWithInferedType, playground.formStage, formGroup)

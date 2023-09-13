@@ -26,6 +26,13 @@
             </td>
         </ng-container>
         <!-- -->
+        <ng-container matColumnDef="IsHighlighted">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> IsHighlighted </th>
+            <td mat-cell *matCellDef="let Node">
+                <mat-checkbox [checked]="Node.IsHighlighted" disabled=true></mat-checkbox>
+            </td>
+        </ng-container>
+        <!-- -->
         <ng-container matColumnDef="IsExpanded">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> IsExpanded </th>
             <td mat-cell *matCellDef="let Node">

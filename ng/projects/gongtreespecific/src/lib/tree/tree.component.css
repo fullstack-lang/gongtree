@@ -2,3 +2,7 @@
     background-color: #F8F8F8;
     cursor: pointer;
 }
+
+.node-link-highlighted {
+    background-color: #F8F8F8;
+}

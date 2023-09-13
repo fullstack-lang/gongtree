@@ -1,7 +1,7 @@
 <div class="vertical-paper">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
         <!-- This is the tree node template for leaf nodes -->
-        <mat-tree-node [class.node-link]="node.gongNode.IsNodeClickable" *matTreeNodeDef="let node" matTreeNodePadding>
+        <mat-tree-node [class.node-link]="node.gongNode.IsNodeClickable" [class.node-link-highlighted]="node.gongNode.IsHighlighted" *matTreeNodeDef="let node" matTreeNodePadding>
             <!-- use a disabled button to provide padding for tree leaf -->
             <button mat-icon-button disabled></button>
             <mat-checkbox *ngIf="node.gongNode.HasCheckboxButton" [disabled]="node.gongNode.IsCheckboxDisabled" [checked]="node.gongNode.IsChecked" (change)="toggleNodeCheckbox(node)">

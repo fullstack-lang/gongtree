@@ -15,6 +15,8 @@ type Node struct {
 	// Impl is the pointer to the implementation of the node in the models of interest
 	Impl NodeImplInterface
 
+	IsHighlighted bool
+
 	IsExpanded bool
 
 	// fields related to the selection of the node by a check box

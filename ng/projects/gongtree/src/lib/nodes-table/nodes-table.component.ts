@@ -75,6 +75,9 @@ export class NodesTableComponent implements OnInit {
         case 'Name':
           return nodeDB.Name;
 
+        case 'IsHighlighted':
+          return nodeDB.IsHighlighted ? "true" : "false";
+
         case 'IsExpanded':
           return nodeDB.IsExpanded ? "true" : "false";
 
@@ -185,6 +188,7 @@ export class NodesTableComponent implements OnInit {
     if (this.mode == TableComponentMode.DISPLAY_MODE) {
       this.displayedColumns = ['ID', 'Delete', // insertion point for columns to display
         "Name",
+        "IsHighlighted",
         "IsExpanded",
         "HasCheckboxButton",
         "IsChecked",
@@ -197,6 +201,7 @@ export class NodesTableComponent implements OnInit {
     } else {
       this.displayedColumns = ['select', 'ID', // insertion point for columns to display
         "Name",
+        "IsHighlighted",
         "IsExpanded",
         "HasCheckboxButton",
         "IsChecked",

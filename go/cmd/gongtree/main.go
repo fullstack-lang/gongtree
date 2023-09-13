@@ -8,10 +8,10 @@ import (
 	"strconv"
 
 	gongtree_go "github.com/fullstack-lang/gongtree/go"
-	gongtree_data "github.com/fullstack-lang/gongtree/go/data"
 	gongtree_fullstack "github.com/fullstack-lang/gongtree/go/fullstack"
 	gongtree_models "github.com/fullstack-lang/gongtree/go/models"
 	gongtree_orm "github.com/fullstack-lang/gongtree/go/orm"
+	gongtree_probe "github.com/fullstack-lang/gongtree/go/probe"
 	gongtree_static "github.com/fullstack-lang/gongtree/go/static"
 
 	gongdoc_load "github.com/fullstack-lang/gongdoc/go/load"
@@ -66,13 +66,13 @@ func main() {
 
 	if *marshallOnCommit != "" {
 		// persistence in a SQLite file on disk in memory
-		stage, backRepo = gongtree_fullstack.NewStackInstance(r, "gongtree")
+		stage, backRepo = gongtree_fullstack.NewStackInstance(r, gongtree_models.TreeStackDefaultName.ToString())
 	} else {
 		// persistence in a SQLite file on disk
-		stage, backRepo = gongtree_fullstack.NewStackInstance(r, "gongtree", "./gongtree.db")
+		stage, backRepo = gongtree_fullstack.NewStackInstance(r, gongtree_models.TreeStackDefaultName.ToString(), "./gongtree.db")
 	}
 
-	gongtree_data.Load(r, gongtree_go.GoModelsDir, "gongtree", stage, backRepo)
+	gongtree_probe.NewProbe(r, gongtree_go.GoModelsDir, gongtree_models.TreeStackDefaultName.ToString(), stage, backRepo)
 
 	if *unmarshallFromCode != "" {
 		stage.Checkout()
