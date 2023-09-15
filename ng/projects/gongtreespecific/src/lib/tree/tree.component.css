@@ -1,8 +1,10 @@
-.node-link:hover {
-    background-color: #F8F8F8;
-    cursor: pointer;
+.custom-tree-node {
+    transition: background-color 0.3s, cursor 0.3s;
 }
 
-.node-link-highlighted {
+.custom-tree-node:hover {
     background-color: #F8F8F8;
+    /* Set the background color you want when hovered */
+    cursor: pointer;
+    /* Set the cursor type when hovered */
 }
