@@ -105,7 +105,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000000_root1.Name = `root1`
-	__Node__000000_root1.IsHighlighted = false
+	__Node__000000_root1.BackgroundColor = ``
 	__Node__000000_root1.IsExpanded = true
 	__Node__000000_root1.HasCheckboxButton = false
 	__Node__000000_root1.IsChecked = false
@@ -115,7 +115,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000001_root2.Name = `root2`
-	__Node__000001_root2.IsHighlighted = false
+	__Node__000001_root2.BackgroundColor = ``
 	__Node__000001_root2.IsExpanded = true
 	__Node__000001_root2.HasCheckboxButton = false
 	__Node__000001_root2.IsChecked = false
@@ -125,7 +125,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000002_root3.Name = `root3`
-	__Node__000002_root3.IsHighlighted = false
+	__Node__000002_root3.BackgroundColor = ``
 	__Node__000002_root3.IsExpanded = true
 	__Node__000002_root3.HasCheckboxButton = false
 	__Node__000002_root3.IsChecked = false
@@ -135,7 +135,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000003_test_1_1.Name = `test 1.1`
-	__Node__000003_test_1_1.IsHighlighted = false
+	__Node__000003_test_1_1.BackgroundColor = ``
 	__Node__000003_test_1_1.IsExpanded = false
 	__Node__000003_test_1_1.HasCheckboxButton = true
 	__Node__000003_test_1_1.IsChecked = true
@@ -145,7 +145,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000004_test_1_2_clickable_.Name = `test 1.2 (clickable)`
-	__Node__000004_test_1_2_clickable_.IsHighlighted = false
+	__Node__000004_test_1_2_clickable_.BackgroundColor = ``
 	__Node__000004_test_1_2_clickable_.IsExpanded = false
 	__Node__000004_test_1_2_clickable_.HasCheckboxButton = false
 	__Node__000004_test_1_2_clickable_.IsChecked = false
@@ -155,7 +155,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000005_test_1_3.Name = `test 1.3`
-	__Node__000005_test_1_3.IsHighlighted = true
+	__Node__000005_test_1_3.BackgroundColor = ``
 	__Node__000005_test_1_3.IsExpanded = true
 	__Node__000005_test_1_3.HasCheckboxButton = false
 	__Node__000005_test_1_3.IsChecked = false
@@ -165,7 +165,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000006_test_1_3_1.Name = `test 1.3.1`
-	__Node__000006_test_1_3_1.IsHighlighted = false
+	__Node__000006_test_1_3_1.BackgroundColor = ``
 	__Node__000006_test_1_3_1.IsExpanded = false
 	__Node__000006_test_1_3_1.HasCheckboxButton = false
 	__Node__000006_test_1_3_1.IsChecked = false
@@ -175,7 +175,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000007_test_1_4.Name = `test 1.4`
-	__Node__000007_test_1_4.IsHighlighted = false
+	__Node__000007_test_1_4.BackgroundColor = ``
 	__Node__000007_test_1_4.IsExpanded = false
 	__Node__000007_test_1_4.HasCheckboxButton = false
 	__Node__000007_test_1_4.IsChecked = false
@@ -185,7 +185,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000008_test2_1.Name = `test2.1`
-	__Node__000008_test2_1.IsHighlighted = false
+	__Node__000008_test2_1.BackgroundColor = ``
 	__Node__000008_test2_1.IsExpanded = false
 	__Node__000008_test2_1.HasCheckboxButton = true
 	__Node__000008_test2_1.IsChecked = true
@@ -195,7 +195,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000009_test3.Name = `test3`
-	__Node__000009_test3.IsHighlighted = false
+	__Node__000009_test3.BackgroundColor = ``
 	__Node__000009_test3.IsExpanded = false
 	__Node__000009_test3.HasCheckboxButton = true
 	__Node__000009_test3.IsChecked = false
@@ -205,7 +205,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000010_test3.Name = `test3`
-	__Node__000010_test3.IsHighlighted = false
+	__Node__000010_test3.BackgroundColor = ``
 	__Node__000010_test3.IsExpanded = false
 	__Node__000010_test3.HasCheckboxButton = false
 	__Node__000010_test3.IsChecked = false

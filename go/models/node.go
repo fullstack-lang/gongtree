@@ -15,7 +15,9 @@ type Node struct {
 	// Impl is the pointer to the implementation of the node in the models of interest
 	Impl NodeImplInterface
 
-	IsHighlighted bool
+	// BackgroundColor, if zero value will have the color to default, therwise, the node
+	// will have this color
+	BackgroundColor string
 
 	IsExpanded bool
 

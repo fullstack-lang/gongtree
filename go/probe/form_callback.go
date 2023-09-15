@@ -128,8 +128,8 @@ func (nodeFormCallback *NodeFormCallback) OnSave() {
 		// insertion point per field
 		case "Name":
 			FormDivBasicFieldToField(&(node_.Name), formDiv)
-		case "IsHighlighted":
-			FormDivBasicFieldToField(&(node_.IsHighlighted), formDiv)
+		case "BackgroundColor":
+			FormDivBasicFieldToField(&(node_.BackgroundColor), formDiv)
 		case "IsExpanded":
 			FormDivBasicFieldToField(&(node_.IsExpanded), formDiv)
 		case "HasCheckboxButton":

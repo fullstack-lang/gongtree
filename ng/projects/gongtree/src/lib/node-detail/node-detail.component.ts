@@ -36,7 +36,6 @@ enum NodeDetailComponentState {
 export class NodeDetailComponent implements OnInit {
 
 	// insertion point for declarations
-	IsHighlightedFormControl: UntypedFormControl = new UntypedFormControl(false);
 	IsExpandedFormControl: UntypedFormControl = new UntypedFormControl(false);
 	HasCheckboxButtonFormControl: UntypedFormControl = new UntypedFormControl(false);
 	IsCheckedFormControl: UntypedFormControl = new UntypedFormControl(false);
@@ -159,7 +158,6 @@ export class NodeDetailComponent implements OnInit {
 				}
 
 				// insertion point for recovery of form controls value for bool fields
-				this.IsHighlightedFormControl.setValue(this.node.IsHighlighted)
 				this.IsExpandedFormControl.setValue(this.node.IsExpanded)
 				this.HasCheckboxButtonFormControl.setValue(this.node.HasCheckboxButton)
 				this.IsCheckedFormControl.setValue(this.node.IsChecked)
@@ -178,7 +176,6 @@ export class NodeDetailComponent implements OnInit {
 		// pointers fields, after the translation, are nulled in order to perform serialization
 
 		// insertion point for translation/nullation of each field
-		this.node.IsHighlighted = this.IsHighlightedFormControl.value
 		this.node.IsExpanded = this.IsExpandedFormControl.value
 		this.node.HasCheckboxButton = this.HasCheckboxButtonFormControl.value
 		this.node.IsChecked = this.IsCheckedFormControl.value
