@@ -73,12 +73,12 @@ func (buttonFormCallback *ButtonFormCallback) OnSave() {
 		buttonFormCallback.playground.formStage.Reset()
 		newFormGroup := (&table.FormGroup{
 			Name: table.FormGroupDefaultName.ToString(),
-			OnSave: NewAstructFormCallback(
+			OnSave: NewButtonFormCallback(
 				nil,
 				buttonFormCallback.playground,
 			),
 		}).Stage(buttonFormCallback.playground.formStage)
-		button := new(models.Astruct)
+		button := new(models.Button)
 		FillUpForm(button, newFormGroup, buttonFormCallback.playground)
 		buttonFormCallback.playground.formStage.Commit()
 	}
@@ -128,6 +128,8 @@ func (nodeFormCallback *NodeFormCallback) OnSave() {
 		// insertion point per field
 		case "Name":
 			FormDivBasicFieldToField(&(node_.Name), formDiv)
+		case "BackgroundColor":
+			FormDivBasicFieldToField(&(node_.BackgroundColor), formDiv)
 		case "IsExpanded":
 			FormDivBasicFieldToField(&(node_.IsExpanded), formDiv)
 		case "HasCheckboxButton":
@@ -154,12 +156,12 @@ func (nodeFormCallback *NodeFormCallback) OnSave() {
 		nodeFormCallback.playground.formStage.Reset()
 		newFormGroup := (&table.FormGroup{
 			Name: table.FormGroupDefaultName.ToString(),
-			OnSave: NewAstructFormCallback(
+			OnSave: NewNodeFormCallback(
 				nil,
 				nodeFormCallback.playground,
 			),
 		}).Stage(nodeFormCallback.playground.formStage)
-		node := new(models.Astruct)
+		node := new(models.Node)
 		FillUpForm(node, newFormGroup, nodeFormCallback.playground)
 		nodeFormCallback.playground.formStage.Commit()
 	}
@@ -223,12 +225,12 @@ func (treeFormCallback *TreeFormCallback) OnSave() {
 		treeFormCallback.playground.formStage.Reset()
 		newFormGroup := (&table.FormGroup{
 			Name: table.FormGroupDefaultName.ToString(),
-			OnSave: NewAstructFormCallback(
+			OnSave: NewTreeFormCallback(
 				nil,
 				treeFormCallback.playground,
 			),
 		}).Stage(treeFormCallback.playground.formStage)
-		tree := new(models.Astruct)
+		tree := new(models.Tree)
 		FillUpForm(tree, newFormGroup, treeFormCallback.playground)
 		treeFormCallback.playground.formStage.Commit()
 	}
