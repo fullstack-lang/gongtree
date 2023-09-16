@@ -37,7 +37,7 @@
             </button>
             <mat-checkbox *ngIf="node.gongNode.HasCheckboxButton" [disabled]="node.gongNode.IsCheckboxDisabled" [checked]="node.gongNode.IsChecked" (change)="toggleNodeCheckbox(node)">
             </mat-checkbox>
-            <div *ngIf="!node.gongNode.IsNodeClickable">
+            <div>
                 {{node.name}}
             </div>
             <ng-container *ngFor="let button of node.gongNode.Buttons">
