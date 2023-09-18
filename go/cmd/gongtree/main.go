@@ -72,8 +72,6 @@ func main() {
 		stage, backRepo = gongtree_fullstack.NewStackInstance(r, gongtree_models.TreeStackDefaultName.ToString(), "./gongtree.db")
 	}
 
-	gongtree_probe.NewProbe(r, gongtree_go.GoModelsDir, gongtree_models.TreeStackDefaultName.ToString(), stage, backRepo)
-
 	if *unmarshallFromCode != "" {
 		stage.Checkout()
 		stage.Reset()
@@ -97,6 +95,8 @@ func main() {
 		hook := new(BeforeCommitImplementation)
 		stage.OnInitCommitCallback = hook
 	}
+
+	gongtree_probe.NewProbe(r, gongtree_go.GoModelsDir, gongtree_models.TreeStackDefaultName.ToString(), stage, backRepo)
 
 	gongdoc_load.Load(
 		"gongtree",
