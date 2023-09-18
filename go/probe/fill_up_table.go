@@ -6,70 +6,13 @@ import (
 	"log"
 	"sort"
 
-	gong_models "github.com/fullstack-lang/gong/go/models"
 	gongtable "github.com/fullstack-lang/gongtable/go/models"
-	gongtree_models "github.com/fullstack-lang/gongtree/go/models"
 
 	"github.com/fullstack-lang/maticons/maticons"
 
 	"github.com/fullstack-lang/gongtree/go/models"
 	"github.com/fullstack-lang/gongtree/go/orm"
 )
-
-type NodeImplGongstruct struct {
-	gongStruct *gong_models.GongStruct
-	playground *Playground
-}
-
-func NewNodeImplGongstruct(
-	gongStruct *gong_models.GongStruct,
-	playground *Playground,
-) (nodeImplGongstruct *NodeImplGongstruct) {
-
-	nodeImplGongstruct = new(NodeImplGongstruct)
-	nodeImplGongstruct.gongStruct = gongStruct
-	nodeImplGongstruct.playground = playground
-	return
-}
-
-func (nodeImplGongstruct *NodeImplGongstruct) OnAfterUpdate(
-	gongtreeStage *gongtree_models.StageStruct,
-	stagedNode, frontNode *gongtree_models.Node) {
-
-	// setting the value of the staged node	to the new value
-	// otherwise, the expansion memory is lost
-	if stagedNode.IsExpanded != frontNode.IsExpanded {
-		stagedNode.IsExpanded = frontNode.IsExpanded
-		return
-	}
-
-	// if node is unchecked
-	if stagedNode.IsChecked && !frontNode.IsChecked {
-
-	}
-
-	// if node is checked, add gongstructshape
-	if !stagedNode.IsChecked && frontNode.IsChecked {
-
-	}
-
-	// the node was selected. Therefore, one request the
-	// table to route to the table
-	log.Println("NodeImplGongstruct:OnAfterUpdate with: ", nodeImplGongstruct.gongStruct.GetName())
-
-	// insertion point
-	if nodeImplGongstruct.gongStruct.GetName() == "Button" {
-		fillUpTable[models.Button](nodeImplGongstruct.playground)
-	}
-	if nodeImplGongstruct.gongStruct.GetName() == "Node" {
-		fillUpTable[models.Node](nodeImplGongstruct.playground)
-	}
-	if nodeImplGongstruct.gongStruct.GetName() == "Tree" {
-		fillUpTable[models.Tree](nodeImplGongstruct.playground)
-	}
-
-	nodeImplGongstruct.playground.tableStage.Commit()
-}
 
 func fillUpTablePointerToGongstruct[T models.PointerToGongstruct](
 	playground *Playground,
@@ -104,6 +47,8 @@ func fillUpTable[T models.Gongstruct](
 	table.HasSaveButton = false
 
 	fields := models.GetFields[T]()
+	reverseFields := models.GetReverseFields[T]()
+
 	table.NbOfStickyColumns = 3
 
 	// refresh the stage of interest
@@ -142,6 +87,11 @@ func fillUpTable[T models.Gongstruct](
 		column.Name = fieldName
 		table.DisplayedColumns = append(table.DisplayedColumns, column)
 	}
+	for _, reverseField := range reverseFields {
+		column := new(gongtable.DisplayedColumn).Stage(playground.tableStage)
+		column.Name = "(" + reverseField.GongstructName + ") -> " + reverseField.Fieldname
+		table.DisplayedColumns = append(table.DisplayedColumns, column)
+	}
 
 	fieldIndex := 0
 	for _, structInstance := range sliceOfGongStructsSorted {
@@ -176,10 +126,32 @@ func fillUpTable[T models.Gongstruct](
 			Name: "Delete Icon",
 			Icon: string(maticons.BUTTON_delete),
 		}).Stage(playground.tableStage)
+		cellIcon.Impl = NewCellDeleteIconImpl[T](structInstance, playground)
 		cell.CellIcon = cellIcon
 
 		for _, fieldName := range fields {
 			value := models.GetFieldStringValue[T](*structInstance, fieldName)
+			name := fmt.Sprintf("%d", fieldIndex) + " " + value
+			fieldIndex++
+			// log.Println(fieldName, value)
+			cell := (&gongtable.Cell{
+				Name: name,
+			}).Stage(playground.tableStage)
+			row.Cells = append(row.Cells, cell)
+
+			cellString := (&gongtable.CellString{
+				Name:  name,
+				Value: value,
+			}).Stage(playground.tableStage)
+			cell.CellString = cellString
+		}
+		for _, reverseField := range reverseFields {
+
+			value := orm.GetReverseFieldOwnerName[T](
+				playground.stageOfInterest,
+				playground.backRepoOfInterest,
+				structInstance,
+				reverseField.Fieldname)
 			name := fmt.Sprintf("%d", fieldIndex) + " " + value
 			fieldIndex++
 			// log.Println(fieldName, value)
@@ -215,43 +187,5 @@ type RowUpdate[T models.Gongstruct] struct {
 func (rowUpdate *RowUpdate[T]) RowUpdated(stage *gongtable.StageStruct, row, updatedRow *gongtable.Row) {
 	log.Println("RowUpdate: RowUpdated", updatedRow.Name)
 
-	formStage := rowUpdate.playground.formStage
-	formStage.Reset()
-	formStage.Commit()
-
-	switch instancesTyped := any(rowUpdate.Instance).(type) {
-	// insertion point
-	case *models.Button:
-		formGroup := (&gongtable.FormGroup{
-			Name:  gongtable.FormGroupDefaultName.ToString(),
-			Label: "Update Button Form",
-			OnSave: NewButtonFormCallback(
-				instancesTyped,
-				rowUpdate.playground,
-			),
-		}).Stage(formStage)
-		FillUpForm(instancesTyped, formGroup, rowUpdate.playground)
-	case *models.Node:
-		formGroup := (&gongtable.FormGroup{
-			Name:  gongtable.FormGroupDefaultName.ToString(),
-			Label: "Update Node Form",
-			OnSave: NewNodeFormCallback(
-				instancesTyped,
-				rowUpdate.playground,
-			),
-		}).Stage(formStage)
-		FillUpForm(instancesTyped, formGroup, rowUpdate.playground)
-	case *models.Tree:
-		formGroup := (&gongtable.FormGroup{
-			Name:  gongtable.FormGroupDefaultName.ToString(),
-			Label: "Update Tree Form",
-			OnSave: NewTreeFormCallback(
-				instancesTyped,
-				rowUpdate.playground,
-			),
-		}).Stage(formStage)
-		FillUpForm(instancesTyped, formGroup, rowUpdate.playground)
-	}
-	formStage.Commit()
-
+	FillUpFormFromGongstruct(rowUpdate.Instance, rowUpdate.playground)
 }
