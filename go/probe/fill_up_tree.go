@@ -3,9 +3,10 @@ package probe
 import (
 	"fmt"
 	"sort"
+	"strings"
 
 	gongtree_buttons "github.com/fullstack-lang/gongtree/go/buttons"
-	gongtree_models "github.com/fullstack-lang/gongtree/go/models"
+	tree "github.com/fullstack-lang/gongtree/go/models"
 
 	gong_models "github.com/fullstack-lang/gong/go/models"
 
@@ -15,10 +16,24 @@ import (
 func fillUpTree(
 	playground *Playground,
 ) {
+	// keep in memory which nodes have been unfolded / folded
+	expandedNodesSet := make(map[string]any, 0)
+	var _sidebar *tree.Tree
+	for __sidebar := range playground.treeStage.Trees {
+		_sidebar = __sidebar
+	}
+	if _sidebar != nil {
+		for _, node := range _sidebar.RootNodes {
+			if node.IsExpanded {
+				expandedNodesSet[strings.Fields(node.Name)[0]] = true
+			}
+		}
+	}
+
 	playground.treeStage.Reset()
 
 	// create tree
-	sidebar := (&gongtree_models.Tree{Name: "gong"}).Stage(playground.treeStage)
+	sidebar := (&tree.Tree{Name: "gong"}).Stage(playground.treeStage)
 
 	// collect all gong struct to construe the true
 	setOfGongStructs := *gong_models.GetGongstructInstancesSet[gong_models.GongStruct](playground.gongStage)
@@ -38,39 +53,43 @@ func fillUpTree(
 		name := gongStruct.Name + " (" +
 			fmt.Sprintf("%d", playground.stageOfInterest.Map_GongStructName_InstancesNb[gongStruct.Name]) + ")"
 
-		nodeGongstruct := (&gongtree_models.Node{Name: name}).Stage(playground.treeStage)
+		nodeGongstruct := (&tree.Node{Name: name}).Stage(playground.treeStage)
 
 
 		nodeGongstruct.IsExpanded = false
+		if _, ok := expandedNodesSet[strings.Fields(name)[0]]; ok {
+			nodeGongstruct.IsExpanded = true
+		}
+		
 		switch gongStruct.Name {
 		// insertion point
 		case "Button":
 			nodeGongstruct.Name = name
 			set := *models.GetGongstructInstancesSet[models.Button](playground.stageOfInterest)
-			for button := range set {
-				nodeInstance := (&gongtree_models.Node{Name: button.GetName()}).Stage(playground.treeStage)
+			for _button := range set {
+				nodeInstance := (&tree.Node{Name: _button.GetName()}).Stage(playground.treeStage)
 				nodeInstance.IsNodeClickable = true
-				nodeInstance.Impl = NewInstanceNodeCallback(button, "Button", playground)
+				nodeInstance.Impl = NewInstanceNodeCallback(_button, "Button", playground)
 
 				nodeGongstruct.Children = append(nodeGongstruct.Children, nodeInstance)
 			}
 		case "Node":
 			nodeGongstruct.Name = name
 			set := *models.GetGongstructInstancesSet[models.Node](playground.stageOfInterest)
-			for node := range set {
-				nodeInstance := (&gongtree_models.Node{Name: node.GetName()}).Stage(playground.treeStage)
+			for _node := range set {
+				nodeInstance := (&tree.Node{Name: _node.GetName()}).Stage(playground.treeStage)
 				nodeInstance.IsNodeClickable = true
-				nodeInstance.Impl = NewInstanceNodeCallback(node, "Node", playground)
+				nodeInstance.Impl = NewInstanceNodeCallback(_node, "Node", playground)
 
 				nodeGongstruct.Children = append(nodeGongstruct.Children, nodeInstance)
 			}
 		case "Tree":
 			nodeGongstruct.Name = name
 			set := *models.GetGongstructInstancesSet[models.Tree](playground.stageOfInterest)
-			for tree := range set {
-				nodeInstance := (&gongtree_models.Node{Name: tree.GetName()}).Stage(playground.treeStage)
+			for _tree := range set {
+				nodeInstance := (&tree.Node{Name: _tree.GetName()}).Stage(playground.treeStage)
 				nodeInstance.IsNodeClickable = true
-				nodeInstance.Impl = NewInstanceNodeCallback(tree, "Tree", playground)
+				nodeInstance.Impl = NewInstanceNodeCallback(_tree, "Tree", playground)
 
 				nodeGongstruct.Children = append(nodeGongstruct.Children, nodeInstance)
 			}	
@@ -80,7 +99,7 @@ func fillUpTree(
 		nodeGongstruct.Impl = NewTreeNodeImplGongstruct(gongStruct, playground)
 
 		// add add button
-		addButton := (&gongtree_models.Button{
+		addButton := (&tree.Button{
 			Name: gongStruct.Name + " " + string(gongtree_buttons.BUTTON_add),
 			Icon: string(gongtree_buttons.BUTTON_add)}).Stage(playground.treeStage)
 		nodeGongstruct.Buttons = append(nodeGongstruct.Buttons, addButton)
@@ -117,8 +136,8 @@ func NewInstanceNodeCallback[T models.Gongstruct](
 }
 
 func (instanceNodeCallback *InstanceNodeCallback[T]) OnAfterUpdate(
-	gongtreeStage *gongtree_models.StageStruct,
-	stagedNode, frontNode *gongtree_models.Node) {
+	gongtreeStage *tree.StageStruct,
+	stagedNode, frontNode *tree.Node) {
 
 	FillUpFormFromGongstruct(
 		instanceNodeCallback.Instance,

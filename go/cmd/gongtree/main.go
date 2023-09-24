@@ -13,8 +13,6 @@ import (
 	gongtree_orm "github.com/fullstack-lang/gongtree/go/orm"
 	gongtree_probe "github.com/fullstack-lang/gongtree/go/probe"
 	gongtree_static "github.com/fullstack-lang/gongtree/go/static"
-
-	gongdoc_load "github.com/fullstack-lang/gongdoc/go/load"
 )
 
 var (
@@ -66,10 +64,10 @@ func main() {
 
 	if *marshallOnCommit != "" {
 		// persistence in a SQLite file on disk in memory
-		stage, backRepo = gongtree_fullstack.NewStackInstance(r, gongtree_models.TreeStackDefaultName.ToString())
+		stage, backRepo = gongtree_fullstack.NewStackInstance(r, "gongtree")
 	} else {
 		// persistence in a SQLite file on disk
-		stage, backRepo = gongtree_fullstack.NewStackInstance(r, gongtree_models.TreeStackDefaultName.ToString(), "./gongtree.db")
+		stage, backRepo = gongtree_fullstack.NewStackInstance(r, "gongtree", "./gongtree.db")
 	}
 
 	if *unmarshallFromCode != "" {
@@ -96,16 +94,8 @@ func main() {
 		stage.OnInitCommitCallback = hook
 	}
 
-	gongtree_probe.NewProbe(r, gongtree_go.GoModelsDir, gongtree_models.TreeStackDefaultName.ToString(), stage, backRepo)
-
-	gongdoc_load.Load(
-		"gongtree",
-		"github.com/fullstack-lang/gongtree/go/models",
-		gongtree_go.GoModelsDir,
-		gongtree_go.GoDiagramsDir,
-		r,
-		*embeddedDiagrams,
-		&stage.Map_GongStructName_InstancesNb)
+	gongtree_probe.NewProbe(r, gongtree_go.GoModelsDir, gongtree_go.GoDiagramsDir, 
+		*embeddedDiagrams,"gongtree", stage, backRepo)
 
 	log.Printf("Server ready serve on localhost:" + strconv.Itoa(*port))
 	err := r.Run(":" + strconv.Itoa(*port))

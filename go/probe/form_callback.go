@@ -3,17 +3,22 @@ package probe
 
 import (
 	"log"
+	"slices"
 	"time"
 
 	table "github.com/fullstack-lang/gongtable/go/models"
 
 	"github.com/fullstack-lang/gongtree/go/models"
+	"github.com/fullstack-lang/gongtree/go/orm"
 )
 
 const __dummmy__time = time.Nanosecond
 
+var __dummmy__letters = slices.Delete([]string{"a"}, 0, 1)
+var __dummy_orm = orm.BackRepoStruct{}
+
 // insertion point
-func NewButtonFormCallback(
+func __gong__New__ButtonFormCallback(
 	button *models.Button,
 	playground *Playground,
 ) (buttonFormCallback *ButtonFormCallback) {
@@ -59,6 +64,48 @@ func (buttonFormCallback *ButtonFormCallback) OnSave() {
 			FormDivBasicFieldToField(&(button_.Name), formDiv)
 		case "Icon":
 			FormDivBasicFieldToField(&(button_.Icon), formDiv)
+		case "Node:Buttons":
+			// we need to retrieve the field owner before the change
+			var pastNodeOwner *models.Node
+			var rf models.ReverseField
+			_ = rf
+			rf.GongstructName = "Node"
+			rf.Fieldname = "Buttons"
+			reverseFieldOwner := orm.GetReverseFieldOwner(
+				buttonFormCallback.playground.stageOfInterest,
+				buttonFormCallback.playground.backRepoOfInterest,
+				button_,
+				&rf)
+
+			if reverseFieldOwner != nil {
+				pastNodeOwner = reverseFieldOwner.(*models.Node)
+			}
+			if formDiv.FormFields[0].FormFieldSelect.Value == nil {
+				if pastNodeOwner != nil {
+					idx := slices.Index(pastNodeOwner.Buttons, button_)
+					pastNodeOwner.Buttons = slices.Delete(pastNodeOwner.Buttons, idx, idx+1)
+				}
+			} else {
+				// we need to retrieve the field owner after the change
+				// parse all astrcut and get the one with the name in the
+				// div
+				for _node := range *models.GetGongstructInstancesSet[models.Node](buttonFormCallback.playground.stageOfInterest) {
+
+					// the match is base on the name
+					if _node.GetName() == formDiv.FormFields[0].FormFieldSelect.Value.GetName() {
+						newNodeOwner := _node // we have a match
+						if pastNodeOwner != nil {
+							if newNodeOwner != pastNodeOwner {
+								idx := slices.Index(pastNodeOwner.Buttons, button_)
+								pastNodeOwner.Buttons = slices.Delete(pastNodeOwner.Buttons, idx, idx+1)
+								newNodeOwner.Buttons = append(newNodeOwner.Buttons, button_)
+							}
+						} else {
+							newNodeOwner.Buttons = append(newNodeOwner.Buttons, button_)
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -73,7 +120,7 @@ func (buttonFormCallback *ButtonFormCallback) OnSave() {
 		buttonFormCallback.playground.formStage.Reset()
 		newFormGroup := (&table.FormGroup{
 			Name: table.FormGroupDefaultName.ToString(),
-			OnSave: NewButtonFormCallback(
+			OnSave: __gong__New__ButtonFormCallback(
 				nil,
 				buttonFormCallback.playground,
 			),
@@ -84,7 +131,7 @@ func (buttonFormCallback *ButtonFormCallback) OnSave() {
 	}
 
 }
-func NewNodeFormCallback(
+func __gong__New__NodeFormCallback(
 	node *models.Node,
 	playground *Playground,
 ) (nodeFormCallback *NodeFormCallback) {
@@ -142,6 +189,90 @@ func (nodeFormCallback *NodeFormCallback) OnSave() {
 			FormDivBasicFieldToField(&(node_.IsInEditMode), formDiv)
 		case "IsNodeClickable":
 			FormDivBasicFieldToField(&(node_.IsNodeClickable), formDiv)
+		case "Node:Children":
+			// we need to retrieve the field owner before the change
+			var pastNodeOwner *models.Node
+			var rf models.ReverseField
+			_ = rf
+			rf.GongstructName = "Node"
+			rf.Fieldname = "Children"
+			reverseFieldOwner := orm.GetReverseFieldOwner(
+				nodeFormCallback.playground.stageOfInterest,
+				nodeFormCallback.playground.backRepoOfInterest,
+				node_,
+				&rf)
+
+			if reverseFieldOwner != nil {
+				pastNodeOwner = reverseFieldOwner.(*models.Node)
+			}
+			if formDiv.FormFields[0].FormFieldSelect.Value == nil {
+				if pastNodeOwner != nil {
+					idx := slices.Index(pastNodeOwner.Children, node_)
+					pastNodeOwner.Children = slices.Delete(pastNodeOwner.Children, idx, idx+1)
+				}
+			} else {
+				// we need to retrieve the field owner after the change
+				// parse all astrcut and get the one with the name in the
+				// div
+				for _node := range *models.GetGongstructInstancesSet[models.Node](nodeFormCallback.playground.stageOfInterest) {
+
+					// the match is base on the name
+					if _node.GetName() == formDiv.FormFields[0].FormFieldSelect.Value.GetName() {
+						newNodeOwner := _node // we have a match
+						if pastNodeOwner != nil {
+							if newNodeOwner != pastNodeOwner {
+								idx := slices.Index(pastNodeOwner.Children, node_)
+								pastNodeOwner.Children = slices.Delete(pastNodeOwner.Children, idx, idx+1)
+								newNodeOwner.Children = append(newNodeOwner.Children, node_)
+							}
+						} else {
+							newNodeOwner.Children = append(newNodeOwner.Children, node_)
+						}
+					}
+				}
+			}
+		case "Tree:RootNodes":
+			// we need to retrieve the field owner before the change
+			var pastTreeOwner *models.Tree
+			var rf models.ReverseField
+			_ = rf
+			rf.GongstructName = "Tree"
+			rf.Fieldname = "RootNodes"
+			reverseFieldOwner := orm.GetReverseFieldOwner(
+				nodeFormCallback.playground.stageOfInterest,
+				nodeFormCallback.playground.backRepoOfInterest,
+				node_,
+				&rf)
+
+			if reverseFieldOwner != nil {
+				pastTreeOwner = reverseFieldOwner.(*models.Tree)
+			}
+			if formDiv.FormFields[0].FormFieldSelect.Value == nil {
+				if pastTreeOwner != nil {
+					idx := slices.Index(pastTreeOwner.RootNodes, node_)
+					pastTreeOwner.RootNodes = slices.Delete(pastTreeOwner.RootNodes, idx, idx+1)
+				}
+			} else {
+				// we need to retrieve the field owner after the change
+				// parse all astrcut and get the one with the name in the
+				// div
+				for _tree := range *models.GetGongstructInstancesSet[models.Tree](nodeFormCallback.playground.stageOfInterest) {
+
+					// the match is base on the name
+					if _tree.GetName() == formDiv.FormFields[0].FormFieldSelect.Value.GetName() {
+						newTreeOwner := _tree // we have a match
+						if pastTreeOwner != nil {
+							if newTreeOwner != pastTreeOwner {
+								idx := slices.Index(pastTreeOwner.RootNodes, node_)
+								pastTreeOwner.RootNodes = slices.Delete(pastTreeOwner.RootNodes, idx, idx+1)
+								newTreeOwner.RootNodes = append(newTreeOwner.RootNodes, node_)
+							}
+						} else {
+							newTreeOwner.RootNodes = append(newTreeOwner.RootNodes, node_)
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -156,7 +287,7 @@ func (nodeFormCallback *NodeFormCallback) OnSave() {
 		nodeFormCallback.playground.formStage.Reset()
 		newFormGroup := (&table.FormGroup{
 			Name: table.FormGroupDefaultName.ToString(),
-			OnSave: NewNodeFormCallback(
+			OnSave: __gong__New__NodeFormCallback(
 				nil,
 				nodeFormCallback.playground,
 			),
@@ -167,7 +298,7 @@ func (nodeFormCallback *NodeFormCallback) OnSave() {
 	}
 
 }
-func NewTreeFormCallback(
+func __gong__New__TreeFormCallback(
 	tree *models.Tree,
 	playground *Playground,
 ) (treeFormCallback *TreeFormCallback) {
@@ -225,7 +356,7 @@ func (treeFormCallback *TreeFormCallback) OnSave() {
 		treeFormCallback.playground.formStage.Reset()
 		newFormGroup := (&table.FormGroup{
 			Name: table.FormGroupDefaultName.ToString(),
-			OnSave: NewTreeFormCallback(
+			OnSave: __gong__New__TreeFormCallback(
 				nil,
 				treeFormCallback.playground,
 			),
