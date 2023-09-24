@@ -130,6 +130,7 @@ func (buttonFormCallback *ButtonFormCallback) OnSave() {
 		buttonFormCallback.playground.formStage.Commit()
 	}
 
+	fillUpTree(buttonFormCallback.playground)
 }
 func __gong__New__NodeFormCallback(
 	node *models.Node,
@@ -297,6 +298,7 @@ func (nodeFormCallback *NodeFormCallback) OnSave() {
 		nodeFormCallback.playground.formStage.Commit()
 	}
 
+	fillUpTree(nodeFormCallback.playground)
 }
 func __gong__New__TreeFormCallback(
 	tree *models.Tree,
@@ -366,4 +368,5 @@ func (treeFormCallback *TreeFormCallback) OnSave() {
 		treeFormCallback.playground.formStage.Commit()
 	}
 
+	fillUpTree(treeFormCallback.playground)
 }

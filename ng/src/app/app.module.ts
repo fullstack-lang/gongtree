@@ -37,7 +37,6 @@ import { GongtablespecificModule } from 'gongtablespecific'
 
 import { GongtreeModule } from 'gongtree'
 import { GongtreespecificModule } from 'gongtreespecific'
-import { GongtreedatamodelModule } from 'gongtreedatamodel'
 
 // mandatory
 import { HttpClientModule } from '@angular/common/http';
@@ -82,7 +81,6 @@ import { HttpClientModule } from '@angular/common/http';
 
     GongtreeModule,
     GongtreespecificModule,
-    GongtreedatamodelModule,
   ],
   providers: [
   ],
