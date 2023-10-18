@@ -38,7 +38,7 @@ type NodeAPI struct {
 	models.Node_WOP
 
 	// encoding of pointers
-	NodePointersEncoding
+	NodePointersEncoding NodePointersEncoding
 }
 
 // NodePointersEncoding encodes pointers to Struct and
@@ -47,21 +47,25 @@ type NodePointersEncoding struct {
 	// insertion for pointer fields encoding declaration
 
 	// field Children is a slice of pointers to another Struct (optional or 0..1)
-	Children IntSlice`gorm:"type:TEXT"`
+	Children IntSlice `gorm:"type:TEXT"`
 
 	// field Buttons is a slice of pointers to another Struct (optional or 0..1)
-	Buttons IntSlice`gorm:"type:TEXT"`
+	Buttons IntSlice `gorm:"type:TEXT"`
 
 	// Implementation of a reverse ID for field Node{}.Children []*Node
+	// (to be removed)
 	Node_ChildrenDBID sql.NullInt64
 
 	// implementation of the index of the withing the slice
+	// (to be removed)
 	Node_ChildrenDBID_Index sql.NullInt64
 
 	// Implementation of a reverse ID for field Tree{}.RootNodes []*Node
+	// (to be removed)
 	Tree_RootNodesDBID sql.NullInt64
 
 	// implementation of the index of the withing the slice
+	// (to be removed)
 	Tree_RootNodesDBID_Index sql.NullInt64
 }
 
@@ -284,6 +288,7 @@ func (backRepoNode *BackRepoNodeStruct) CommitPhaseTwoInstance(backRepo *BackRep
 				backRepo.BackRepoNode.GetNodeDBFromNodePtr(nodeAssocEnd)
 
 			// encode reverse pointer in the association end back repo instance
+			// (to be removed)
 			nodeAssocEnd_DB.Node_ChildrenDBID.Int64 = int64(nodeDB.ID)
 			nodeAssocEnd_DB.Node_ChildrenDBID.Valid = true
 			nodeAssocEnd_DB.Node_ChildrenDBID_Index.Int64 = int64(idx)
@@ -313,6 +318,7 @@ func (backRepoNode *BackRepoNodeStruct) CommitPhaseTwoInstance(backRepo *BackRep
 				backRepo.BackRepoButton.GetButtonDBFromButtonPtr(buttonAssocEnd)
 
 			// encode reverse pointer in the association end back repo instance
+			// (to be removed)
 			buttonAssocEnd_DB.Node_ButtonsDBID.Int64 = int64(nodeDB.ID)
 			buttonAssocEnd_DB.Node_ButtonsDBID.Valid = true
 			buttonAssocEnd_DB.Node_ButtonsDBID_Index.Int64 = int64(idx)

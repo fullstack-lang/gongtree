@@ -38,7 +38,7 @@ type ButtonAPI struct {
 	models.Button_WOP
 
 	// encoding of pointers
-	ButtonPointersEncoding
+	ButtonPointersEncoding ButtonPointersEncoding
 }
 
 // ButtonPointersEncoding encodes pointers to Struct and
@@ -47,9 +47,11 @@ type ButtonPointersEncoding struct {
 	// insertion for pointer fields encoding declaration
 
 	// Implementation of a reverse ID for field Node{}.Buttons []*Button
+	// (to be removed)
 	Node_ButtonsDBID sql.NullInt64
 
 	// implementation of the index of the withing the slice
+	// (to be removed)
 	Node_ButtonsDBID_Index sql.NullInt64
 }
 

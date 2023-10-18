@@ -38,7 +38,7 @@ type TreeAPI struct {
 	models.Tree_WOP
 
 	// encoding of pointers
-	TreePointersEncoding
+	TreePointersEncoding TreePointersEncoding
 }
 
 // TreePointersEncoding encodes pointers to Struct and
@@ -47,7 +47,7 @@ type TreePointersEncoding struct {
 	// insertion for pointer fields encoding declaration
 
 	// field RootNodes is a slice of pointers to another Struct (optional or 0..1)
-	RootNodes IntSlice`gorm:"type:TEXT"`
+	RootNodes IntSlice `gorm:"type:TEXT"`
 }
 
 // TreeDB describes a tree in the database
@@ -221,6 +221,7 @@ func (backRepoTree *BackRepoTreeStruct) CommitPhaseTwoInstance(backRepo *BackRep
 				backRepo.BackRepoNode.GetNodeDBFromNodePtr(nodeAssocEnd)
 
 			// encode reverse pointer in the association end back repo instance
+			// (to be removed)
 			nodeAssocEnd_DB.Tree_RootNodesDBID.Int64 = int64(treeDB.ID)
 			nodeAssocEnd_DB.Tree_RootNodesDBID.Valid = true
 			nodeAssocEnd_DB.Tree_RootNodesDBID_Index.Int64 = int64(idx)
