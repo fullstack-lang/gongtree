@@ -16,7 +16,6 @@ import { FrontRepo, FrontRepoService } from './front-repo.service';
 
 // insertion point for imports
 import { ButtonDB } from './button-db'
-import { TreeDB } from './tree-db'
 
 @Injectable({
   providedIn: 'root'
@@ -92,10 +91,6 @@ export class NodeService {
       nodedb.NodePointersEncoding.Buttons.push(_button.ID)
     }
     nodedb.Buttons = []
-    let _Node_Children_reverse = nodedb.NodePointersEncoding.Node_Children_reverse
-    nodedb.NodePointersEncoding.Node_Children_reverse = new NodeDB
-    let _Tree_RootNodes_reverse = nodedb.NodePointersEncoding.Tree_RootNodes_reverse
-    nodedb.NodePointersEncoding.Tree_RootNodes_reverse = new TreeDB
 
     let params = new HttpParams().set("GONG__StackPath", GONG__StackPath)
     let httpOptions = {
@@ -120,8 +115,6 @@ export class NodeService {
             nodedb.Buttons.push(_button!)
           }
         }
-        nodedb.NodePointersEncoding.Node_Children_reverse = _Node_Children_reverse
-        nodedb.NodePointersEncoding.Tree_RootNodes_reverse = _Tree_RootNodes_reverse
         // this.log(`posted nodedb id=${nodedb.ID}`)
       }),
       catchError(this.handleError<NodeDB>('postNode'))
@@ -166,10 +159,6 @@ export class NodeService {
       nodedb.NodePointersEncoding.Buttons.push(_button.ID)
     }
     nodedb.Buttons = []
-    let _Node_Children_reverse = nodedb.NodePointersEncoding.Node_Children_reverse
-    nodedb.NodePointersEncoding.Node_Children_reverse = new NodeDB
-    let _Tree_RootNodes_reverse = nodedb.NodePointersEncoding.Tree_RootNodes_reverse
-    nodedb.NodePointersEncoding.Tree_RootNodes_reverse = new TreeDB
 
     let params = new HttpParams().set("GONG__StackPath", GONG__StackPath)
     let httpOptions = {
@@ -194,8 +183,6 @@ export class NodeService {
             nodedb.Buttons.push(_button!)
           }
         }
-        nodedb.NodePointersEncoding.Node_Children_reverse = _Node_Children_reverse
-        nodedb.NodePointersEncoding.Tree_RootNodes_reverse = _Tree_RootNodes_reverse
         // this.log(`updated nodedb id=${nodedb.ID}`)
       }),
       catchError(this.handleError<NodeDB>('updateNode'))
