@@ -12,6 +12,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { ButtonDB } from './button-db';
+import { FrontRepo, FrontRepoService } from './front-repo.service';
 
 // insertion point for imports
 import { NodeDB } from './node-db'
@@ -44,10 +45,10 @@ export class ButtonService {
 
   /** GET buttons from the server */
   // gets is more robust to refactoring
-  gets(GONG__StackPath: string): Observable<ButtonDB[]> {
-    return this.getButtons(GONG__StackPath)
+  gets(GONG__StackPath: string, frontRepo: FrontRepo): Observable<ButtonDB[]> {
+    return this.getButtons(GONG__StackPath, frontRepo)
   }
-  getButtons(GONG__StackPath: string): Observable<ButtonDB[]> {
+  getButtons(GONG__StackPath: string, frontRepo: FrontRepo): Observable<ButtonDB[]> {
 
     let params = new HttpParams().set("GONG__StackPath", GONG__StackPath)
 
@@ -61,10 +62,10 @@ export class ButtonService {
 
   /** GET button by id. Will 404 if id not found */
   // more robust API to refactoring
-  get(id: number, GONG__StackPath: string): Observable<ButtonDB> {
-	return this.getButton(id, GONG__StackPath)
+  get(id: number, GONG__StackPath: string, frontRepo: FrontRepo): Observable<ButtonDB> {
+    return this.getButton(id, GONG__StackPath, frontRepo)
   }
-  getButton(id: number, GONG__StackPath: string): Observable<ButtonDB> {
+  getButton(id: number, GONG__StackPath: string, frontRepo: FrontRepo): Observable<ButtonDB> {
 
     let params = new HttpParams().set("GONG__StackPath", GONG__StackPath)
 
@@ -76,10 +77,10 @@ export class ButtonService {
   }
 
   /** POST: add a new button to the server */
-  post(buttondb: ButtonDB, GONG__StackPath: string): Observable<ButtonDB> {
-    return this.postButton(buttondb, GONG__StackPath)	
+  post(buttondb: ButtonDB, GONG__StackPath: string, frontRepo: FrontRepo): Observable<ButtonDB> {
+    return this.postButton(buttondb, GONG__StackPath, frontRepo)
   }
-  postButton(buttondb: ButtonDB, GONG__StackPath: string): Observable<ButtonDB> {
+  postButton(buttondb: ButtonDB, GONG__StackPath: string, frontRepo: FrontRepo): Observable<ButtonDB> {
 
     // insertion point for reset of pointers and reverse pointers (to avoid circular JSON)
     let _Node_Buttons_reverse = buttondb.ButtonPointersEncoding.Node_Buttons_reverse
@@ -122,14 +123,15 @@ export class ButtonService {
   }
 
   /** PUT: update the buttondb on the server */
-  update(buttondb: ButtonDB, GONG__StackPath: string): Observable<ButtonDB> {
-    return this.updateButton(buttondb, GONG__StackPath)
+  update(buttondb: ButtonDB, GONG__StackPath: string, frontRepo: FrontRepo): Observable<ButtonDB> {
+    return this.updateButton(buttondb, GONG__StackPath, frontRepo)
   }
-  updateButton(buttondb: ButtonDB, GONG__StackPath: string): Observable<ButtonDB> {
+  updateButton(buttondb: ButtonDB, GONG__StackPath: string, frontRepo: FrontRepo): Observable<ButtonDB> {
     const id = typeof buttondb === 'number' ? buttondb : buttondb.ID;
     const url = `${this.buttonsUrl}/${id}`;
 
-    // insertion point for reset of pointers and reverse pointers (to avoid circular JSON)
+    // insertion point for reset of pointers (to avoid circular JSON)
+	// and encoding of pointers
     let _Node_Buttons_reverse = buttondb.ButtonPointersEncoding.Node_Buttons_reverse
     buttondb.ButtonPointersEncoding.Node_Buttons_reverse = new NodeDB
 
@@ -170,6 +172,6 @@ export class ButtonService {
   }
 
   private log(message: string) {
-      console.log(message)
+    console.log(message)
   }
 }
