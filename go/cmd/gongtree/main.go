@@ -33,8 +33,8 @@ func main() {
 	r := gongtree_static.ServeStaticFiles(*logGINFlag)
 
 	// setup stack
-	stage := gongtree_stack.NewStage(r, "gongtree", *unmarshallFromCode, *marshallOnCommit, "", *embeddedDiagrams, true)
-	_ = stage
+	stack := gongtree_stack.NewStack(r, "gongtree", *unmarshallFromCode, *marshallOnCommit, "", *embeddedDiagrams, true)
+	stack.Probe.Refresh()
 
 	log.Printf("Server ready serve on localhost:" + strconv.Itoa(*port))
 	err := r.Run(":" + strconv.Itoa(*port))
