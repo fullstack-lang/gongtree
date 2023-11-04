@@ -7,8 +7,8 @@ import (
 	"github.com/fullstack-lang/gongtree/go/models"
 )
 
-func FillUpFormFromGongstruct[T models.Gongstruct](instance *T, playground *Playground) {
-	formStage := playground.formStage
+func FillUpFormFromGongstruct[T models.Gongstruct](instance *T, probe *Probe) {
+	formStage := probe.formStage
 	formStage.Reset()
 	formStage.Commit()
 
@@ -20,30 +20,30 @@ func FillUpFormFromGongstruct[T models.Gongstruct](instance *T, playground *Play
 			Label: "Update Button Form",
 			OnSave: __gong__New__ButtonFormCallback(
 				instancesTyped,
-				playground,
+				probe,
 			),
 		}).Stage(formStage)
-		FillUpForm(instancesTyped, formGroup, playground)
+		FillUpForm(instancesTyped, formGroup, probe)
 	case *models.Node:
 		formGroup := (&gongtable.FormGroup{
 			Name:  gongtable.FormGroupDefaultName.ToString(),
 			Label: "Update Node Form",
 			OnSave: __gong__New__NodeFormCallback(
 				instancesTyped,
-				playground,
+				probe,
 			),
 		}).Stage(formStage)
-		FillUpForm(instancesTyped, formGroup, playground)
+		FillUpForm(instancesTyped, formGroup, probe)
 	case *models.Tree:
 		formGroup := (&gongtable.FormGroup{
 			Name:  gongtable.FormGroupDefaultName.ToString(),
 			Label: "Update Tree Form",
 			OnSave: __gong__New__TreeFormCallback(
 				instancesTyped,
-				playground,
+				probe,
 			),
 		}).Stage(formStage)
-		FillUpForm(instancesTyped, formGroup, playground)
+		FillUpForm(instancesTyped, formGroup, probe)
 	default:
 		_ = instancesTyped
 	}
