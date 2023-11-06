@@ -190,6 +190,10 @@ func (nodeFormCallback *NodeFormCallback) OnSave() {
 			FormDivBasicFieldToField(&(node_.IsInEditMode), formDiv)
 		case "IsNodeClickable":
 			FormDivBasicFieldToField(&(node_.IsNodeClickable), formDiv)
+		case "IsWithPreceedingIcon":
+			FormDivBasicFieldToField(&(node_.IsWithPreceedingIcon), formDiv)
+		case "PreceedingIcon":
+			FormDivBasicFieldToField(&(node_.PreceedingIcon), formDiv)
 		case "Node:Children":
 			// we need to retrieve the field owner before the change
 			var pastNodeOwner *models.Node

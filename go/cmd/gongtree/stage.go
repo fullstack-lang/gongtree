@@ -112,6 +112,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000000_root1.IsCheckboxDisabled = false
 	__Node__000000_root1.IsInEditMode = false
 	__Node__000000_root1.IsNodeClickable = false
+	__Node__000000_root1.IsWithPreceedingIcon = false
+	__Node__000000_root1.PreceedingIcon = ``
 
 	// Node values setup
 	__Node__000001_root2.Name = `root2`
@@ -122,6 +124,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000001_root2.IsCheckboxDisabled = false
 	__Node__000001_root2.IsInEditMode = false
 	__Node__000001_root2.IsNodeClickable = false
+	__Node__000001_root2.IsWithPreceedingIcon = false
+	__Node__000001_root2.PreceedingIcon = ``
 
 	// Node values setup
 	__Node__000002_root3.Name = `root3`
@@ -132,6 +136,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000002_root3.IsCheckboxDisabled = false
 	__Node__000002_root3.IsInEditMode = false
 	__Node__000002_root3.IsNodeClickable = false
+	__Node__000002_root3.IsWithPreceedingIcon = false
+	__Node__000002_root3.PreceedingIcon = ``
 
 	// Node values setup
 	__Node__000003_root3_test3.Name = `root3.test3`
@@ -142,6 +148,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000003_root3_test3.IsCheckboxDisabled = false
 	__Node__000003_root3_test3.IsInEditMode = false
 	__Node__000003_root3_test3.IsNodeClickable = false
+	__Node__000003_root3_test3.IsWithPreceedingIcon = false
+	__Node__000003_root3_test3.PreceedingIcon = ``
 
 	// Node values setup
 	__Node__000004_test_1_1.Name = `test 1.1`
@@ -152,6 +160,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000004_test_1_1.IsCheckboxDisabled = true
 	__Node__000004_test_1_1.IsInEditMode = true
 	__Node__000004_test_1_1.IsNodeClickable = false
+	__Node__000004_test_1_1.IsWithPreceedingIcon = false
+	__Node__000004_test_1_1.PreceedingIcon = ``
 
 	// Node values setup
 	__Node__000005_test_1_2_clickable_.Name = `test 1.2 (clickable)`
@@ -162,6 +172,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000005_test_1_2_clickable_.IsCheckboxDisabled = false
 	__Node__000005_test_1_2_clickable_.IsInEditMode = false
 	__Node__000005_test_1_2_clickable_.IsNodeClickable = true
+	__Node__000005_test_1_2_clickable_.IsWithPreceedingIcon = false
+	__Node__000005_test_1_2_clickable_.PreceedingIcon = ``
 
 	// Node values setup
 	__Node__000006_test_1_3.Name = `test 1.3`
@@ -172,6 +184,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000006_test_1_3.IsCheckboxDisabled = false
 	__Node__000006_test_1_3.IsInEditMode = false
 	__Node__000006_test_1_3.IsNodeClickable = false
+	__Node__000006_test_1_3.IsWithPreceedingIcon = false
+	__Node__000006_test_1_3.PreceedingIcon = ``
 
 	// Node values setup
 	__Node__000007_test_1_3_1.Name = `test 1.3.1`
@@ -182,6 +196,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000007_test_1_3_1.IsCheckboxDisabled = false
 	__Node__000007_test_1_3_1.IsInEditMode = false
 	__Node__000007_test_1_3_1.IsNodeClickable = false
+	__Node__000007_test_1_3_1.IsWithPreceedingIcon = true
+	__Node__000007_test_1_3_1.PreceedingIcon = `query_stats`
 
 	// Node values setup
 	__Node__000008_test_1_4.Name = `test 1.4`
@@ -192,6 +208,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000008_test_1_4.IsCheckboxDisabled = false
 	__Node__000008_test_1_4.IsInEditMode = false
 	__Node__000008_test_1_4.IsNodeClickable = false
+	__Node__000008_test_1_4.IsWithPreceedingIcon = false
+	__Node__000008_test_1_4.PreceedingIcon = ``
 
 	// Node values setup
 	__Node__000009_test2_1.Name = `test2.1`
@@ -202,6 +220,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000009_test2_1.IsCheckboxDisabled = false
 	__Node__000009_test2_1.IsInEditMode = false
 	__Node__000009_test2_1.IsNodeClickable = false
+	__Node__000009_test2_1.IsWithPreceedingIcon = false
+	__Node__000009_test2_1.PreceedingIcon = ``
 
 	// Node values setup
 	__Node__000010_test3.Name = `test3`
@@ -212,6 +232,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000010_test3.IsCheckboxDisabled = false
 	__Node__000010_test3.IsInEditMode = false
 	__Node__000010_test3.IsNodeClickable = false
+	__Node__000010_test3.IsWithPreceedingIcon = false
+	__Node__000010_test3.PreceedingIcon = ``
 
 	// Tree values setup
 	__Tree__000000_test.Name = `test`

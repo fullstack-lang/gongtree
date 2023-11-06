@@ -167,8 +167,12 @@ export class TreeComponent implements OnInit {
             if (gongNode && gongNode.Buttons) {
 
               if (gongNode.Buttons.length > 0) {
-                console.log("Button", gongNode.Name)
+                // console.log("Button", gongNode.Name)
               }
+            }
+
+            if (gongNode && gongNode.IsWithPreceedingIcon) {
+              console.log("Node with preceeding icon", gongNode.Name, gongNode.PreceedingIcon)
             }
 
             if (node.gongNode.IsExpanded) {
