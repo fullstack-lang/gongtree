@@ -11,25 +11,10 @@
 			"args": [
 				"run",
 				"main.go",
-				"-diagrams",
-				"-unmarshallFromCode=stage.go",
-				"-marshallOnCommit=stage"
-			],
-			"group": "build"
-		},
-		{
-			"label": "02 - run gongtree w/o diagrams",
-			"type": "shell",
-			"options": {
-				"cwd": "${workspaceFolder}/go/cmd/gongtree"
-			},
-			"command": "go",
-			"args": [
-				"run",
-				".",
-				"-diagrams=false",
-				"--unmarshall=stage",
-				"-marshallOnCommit=stage"
+				"-unmarshallFromCode",
+				"stage.go",
+				"-marshallOnCommit",
+				"stage"
 			],
 			"group": "build"
 		},
