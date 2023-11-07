@@ -172,8 +172,8 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000005_test_1_2_clickable_.IsCheckboxDisabled = false
 	__Node__000005_test_1_2_clickable_.IsInEditMode = false
 	__Node__000005_test_1_2_clickable_.IsNodeClickable = true
-	__Node__000005_test_1_2_clickable_.IsWithPreceedingIcon = false
-	__Node__000005_test_1_2_clickable_.PreceedingIcon = ``
+	__Node__000005_test_1_2_clickable_.IsWithPreceedingIcon = true
+	__Node__000005_test_1_2_clickable_.PreceedingIcon = `directions_walk`
 
 	// Node values setup
 	__Node__000006_test_1_3.Name = `test 1.3`

@@ -2,12 +2,15 @@
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
         <!-- This is the tree node template for leaf nodes -->
         <mat-tree-node class="custom-tree-node" [ngStyle]="{'background-color': getNodeBackgroundColor(node)}" *matTreeNodeDef="let node" matTreeNodePadding>
-            
+
 
             <!-- use a disabled button to provide padding for tree leaf -->
             <button mat-icon-button disabled></button>
-            <mat-icon *ngIf="node.gongNode.IsWithPreceedingIcon" [ngStyle]="{'color':'rgba(0,0,0,.50)'}">{{node.gongNode.PreceedingIcon}}
-            </mat-icon>
+            <ng-container *ngIf="node.gongNode.IsWithPreceedingIcon">
+                <mat-icon [ngStyle]="{'color':'rgba(0,0,0,.50)'}">{{node.gongNode.PreceedingIcon}}
+                </mat-icon>
+                &nbsp;&nbsp;
+            </ng-container>
             <mat-checkbox *ngIf="node.gongNode.HasCheckboxButton" [disabled]="node.gongNode.IsCheckboxDisabled" [checked]="node.gongNode.IsChecked" (change)="toggleNodeCheckbox(node)">
             </mat-checkbox>
             <div *ngIf='!node.gongNode.IsInEditMode && !node.gongNode.IsNodeClickable'>
@@ -40,8 +43,11 @@
                     'expand_more' : 'chevron_right'}}
                 </mat-icon>
             </button>
-            <mat-icon *ngIf="node.gongNode.IsWithPreceedingIcon" [ngStyle]="{'color':'rgba(0,0,0,.50)'}">{{node.gongNode.PreceedingIcon}}
-            </mat-icon>
+            <ng-container *ngIf="node.gongNode.IsWithPreceedingIcon">
+                <mat-icon [ngStyle]="{'color':'rgba(0,0,0,.50)'}">{{node.gongNode.PreceedingIcon}}
+                </mat-icon>
+                &nbsp;&nbsp;
+            </ng-container>
             <mat-checkbox *ngIf="node.gongNode.HasCheckboxButton" [disabled]="node.gongNode.IsCheckboxDisabled" [checked]="node.gongNode.IsChecked" (change)="toggleNodeCheckbox(node)">
             </mat-checkbox>
             <div *ngIf='!node.gongNode.IsInEditMode && !node.gongNode.IsNodeClickable'>
