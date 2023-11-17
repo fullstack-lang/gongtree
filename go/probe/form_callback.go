@@ -194,6 +194,8 @@ func (nodeFormCallback *NodeFormCallback) OnSave() {
 			FormDivBasicFieldToField(&(node_.IsWithPreceedingIcon), formDiv)
 		case "PreceedingIcon":
 			FormDivBasicFieldToField(&(node_.PreceedingIcon), formDiv)
+		case "PreceedingSVGIcon":
+			FormDivSelectFieldToField(&(node_.PreceedingSVGIcon), nodeFormCallback.probe.stageOfInterest, formDiv)
 		case "Node:Children":
 			// we need to retrieve the field owner before the change
 			var pastNodeOwner *models.Node
@@ -303,6 +305,78 @@ func (nodeFormCallback *NodeFormCallback) OnSave() {
 	}
 
 	fillUpTree(nodeFormCallback.probe)
+}
+func __gong__New__SVGIconFormCallback(
+	svgicon *models.SVGIcon,
+	probe *Probe,
+) (svgiconFormCallback *SVGIconFormCallback) {
+	svgiconFormCallback = new(SVGIconFormCallback)
+	svgiconFormCallback.probe = probe
+	svgiconFormCallback.svgicon = svgicon
+
+	svgiconFormCallback.CreationMode = (svgicon == nil)
+
+	return
+}
+
+type SVGIconFormCallback struct {
+	svgicon *models.SVGIcon
+
+	// If the form call is called on the creation of a new instnace
+	CreationMode bool
+
+	probe *Probe
+}
+
+func (svgiconFormCallback *SVGIconFormCallback) OnSave() {
+
+	log.Println("SVGIconFormCallback, OnSave")
+
+	// checkout formStage to have the form group on the stage synchronized with the
+	// back repo (and front repo)
+	svgiconFormCallback.probe.formStage.Checkout()
+
+	if svgiconFormCallback.svgicon == nil {
+		svgiconFormCallback.svgicon = new(models.SVGIcon).Stage(svgiconFormCallback.probe.stageOfInterest)
+	}
+	svgicon_ := svgiconFormCallback.svgicon
+	_ = svgicon_
+
+	// get the formGroup
+	formGroup := svgiconFormCallback.probe.formStage.FormGroups_mapString[table.FormGroupDefaultName.ToString()]
+
+	for _, formDiv := range formGroup.FormDivs {
+		switch formDiv.Name {
+		// insertion point per field
+		case "Name":
+			FormDivBasicFieldToField(&(svgicon_.Name), formDiv)
+		case "SVG":
+			FormDivBasicFieldToField(&(svgicon_.SVG), formDiv)
+		}
+	}
+
+	svgiconFormCallback.probe.stageOfInterest.Commit()
+	fillUpTable[models.SVGIcon](
+		svgiconFormCallback.probe,
+	)
+	svgiconFormCallback.probe.tableStage.Commit()
+
+	// display a new form by reset the form stage
+	if svgiconFormCallback.CreationMode {
+		svgiconFormCallback.probe.formStage.Reset()
+		newFormGroup := (&table.FormGroup{
+			Name: table.FormGroupDefaultName.ToString(),
+			OnSave: __gong__New__SVGIconFormCallback(
+				nil,
+				svgiconFormCallback.probe,
+			),
+		}).Stage(svgiconFormCallback.probe.formStage)
+		svgicon := new(models.SVGIcon)
+		FillUpForm(svgicon, newFormGroup, svgiconFormCallback.probe)
+		svgiconFormCallback.probe.formStage.Commit()
+	}
+
+	fillUpTree(svgiconFormCallback.probe)
 }
 func __gong__New__TreeFormCallback(
 	tree *models.Tree,

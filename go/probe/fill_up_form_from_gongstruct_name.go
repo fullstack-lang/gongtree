@@ -48,6 +48,17 @@ func FillUpFormFromGongstructName(
 		}).Stage(formStage)
 		node := new(models.Node)
 		FillUpForm(node, formGroup, probe)
+	case "SVGIcon":
+		formGroup := (&form.FormGroup{
+			Name:  form.FormGroupDefaultName.ToString(),
+			Label: prefix + " SVGIcon Form",
+			OnSave: __gong__New__SVGIconFormCallback(
+				nil,
+				probe,
+			),
+		}).Stage(formStage)
+		svgicon := new(models.SVGIcon)
+		FillUpForm(svgicon, formGroup, probe)
 	case "Tree":
 		formGroup := (&form.FormGroup{
 			Name:  form.FormGroupDefaultName.ToString(),

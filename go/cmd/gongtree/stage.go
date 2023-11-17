@@ -58,9 +58,13 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000005_test_1_2_clickable_ := (&models.Node{Name: `test 1.2 (clickable)`}).Stage(stage)
 	__Node__000006_test_1_3 := (&models.Node{Name: `test 1.3`}).Stage(stage)
 	__Node__000007_test_1_3_1 := (&models.Node{Name: `test 1.3.1`}).Stage(stage)
-	__Node__000008_test_1_4 := (&models.Node{Name: `test 1.4`}).Stage(stage)
-	__Node__000009_test2_1 := (&models.Node{Name: `test2.1`}).Stage(stage)
-	__Node__000010_test3 := (&models.Node{Name: `test3`}).Stage(stage)
+	__Node__000008_test_1_3_1_svg_icon := (&models.Node{Name: `test 1.3.1 / svg icon`}).Stage(stage)
+	__Node__000009_test_1_4 := (&models.Node{Name: `test 1.4`}).Stage(stage)
+	__Node__000010_test2_1 := (&models.Node{Name: `test2.1`}).Stage(stage)
+	__Node__000011_test3 := (&models.Node{Name: `test3`}).Stage(stage)
+
+	// Declarations of staged instances of SVGIcon
+	__SVGIcon__000000_sync_alt_rotated_90 := (&models.SVGIcon{Name: `sync_alt_rotated_90`}).Stage(stage)
 
 	// Declarations of staged instances of Tree
 	__Tree__000000_test := (&models.Tree{Name: `test`}).Stage(stage)
@@ -200,62 +204,80 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000007_test_1_3_1.PreceedingIcon = `query_stats`
 
 	// Node values setup
-	__Node__000008_test_1_4.Name = `test 1.4`
-	__Node__000008_test_1_4.BackgroundColor = `#4ece92`
-	__Node__000008_test_1_4.IsExpanded = false
-	__Node__000008_test_1_4.HasCheckboxButton = false
-	__Node__000008_test_1_4.IsChecked = false
-	__Node__000008_test_1_4.IsCheckboxDisabled = false
-	__Node__000008_test_1_4.IsInEditMode = false
-	__Node__000008_test_1_4.IsNodeClickable = false
-	__Node__000008_test_1_4.IsWithPreceedingIcon = false
-	__Node__000008_test_1_4.PreceedingIcon = ``
+	__Node__000008_test_1_3_1_svg_icon.Name = `test 1.3.1 / svg icon`
+	__Node__000008_test_1_3_1_svg_icon.BackgroundColor = ``
+	__Node__000008_test_1_3_1_svg_icon.IsExpanded = false
+	__Node__000008_test_1_3_1_svg_icon.HasCheckboxButton = false
+	__Node__000008_test_1_3_1_svg_icon.IsChecked = false
+	__Node__000008_test_1_3_1_svg_icon.IsCheckboxDisabled = false
+	__Node__000008_test_1_3_1_svg_icon.IsInEditMode = false
+	__Node__000008_test_1_3_1_svg_icon.IsNodeClickable = false
+	__Node__000008_test_1_3_1_svg_icon.IsWithPreceedingIcon = false
+	__Node__000008_test_1_3_1_svg_icon.PreceedingIcon = ``
 
 	// Node values setup
-	__Node__000009_test2_1.Name = `test2.1`
-	__Node__000009_test2_1.BackgroundColor = ``
-	__Node__000009_test2_1.IsExpanded = false
-	__Node__000009_test2_1.HasCheckboxButton = true
-	__Node__000009_test2_1.IsChecked = true
-	__Node__000009_test2_1.IsCheckboxDisabled = false
-	__Node__000009_test2_1.IsInEditMode = false
-	__Node__000009_test2_1.IsNodeClickable = false
-	__Node__000009_test2_1.IsWithPreceedingIcon = false
-	__Node__000009_test2_1.PreceedingIcon = ``
+	__Node__000009_test_1_4.Name = `test 1.4`
+	__Node__000009_test_1_4.BackgroundColor = `#4ece92`
+	__Node__000009_test_1_4.IsExpanded = false
+	__Node__000009_test_1_4.HasCheckboxButton = false
+	__Node__000009_test_1_4.IsChecked = false
+	__Node__000009_test_1_4.IsCheckboxDisabled = false
+	__Node__000009_test_1_4.IsInEditMode = false
+	__Node__000009_test_1_4.IsNodeClickable = false
+	__Node__000009_test_1_4.IsWithPreceedingIcon = false
+	__Node__000009_test_1_4.PreceedingIcon = ``
 
 	// Node values setup
-	__Node__000010_test3.Name = `test3`
-	__Node__000010_test3.BackgroundColor = `#F8F8F8`
-	__Node__000010_test3.IsExpanded = false
-	__Node__000010_test3.HasCheckboxButton = true
-	__Node__000010_test3.IsChecked = false
-	__Node__000010_test3.IsCheckboxDisabled = false
-	__Node__000010_test3.IsInEditMode = false
-	__Node__000010_test3.IsNodeClickable = false
-	__Node__000010_test3.IsWithPreceedingIcon = false
-	__Node__000010_test3.PreceedingIcon = ``
+	__Node__000010_test2_1.Name = `test2.1`
+	__Node__000010_test2_1.BackgroundColor = ``
+	__Node__000010_test2_1.IsExpanded = false
+	__Node__000010_test2_1.HasCheckboxButton = true
+	__Node__000010_test2_1.IsChecked = true
+	__Node__000010_test2_1.IsCheckboxDisabled = false
+	__Node__000010_test2_1.IsInEditMode = false
+	__Node__000010_test2_1.IsNodeClickable = false
+	__Node__000010_test2_1.IsWithPreceedingIcon = false
+	__Node__000010_test2_1.PreceedingIcon = ``
+
+	// Node values setup
+	__Node__000011_test3.Name = `test3`
+	__Node__000011_test3.BackgroundColor = `#F8F8F8`
+	__Node__000011_test3.IsExpanded = false
+	__Node__000011_test3.HasCheckboxButton = true
+	__Node__000011_test3.IsChecked = false
+	__Node__000011_test3.IsCheckboxDisabled = false
+	__Node__000011_test3.IsInEditMode = false
+	__Node__000011_test3.IsNodeClickable = false
+	__Node__000011_test3.IsWithPreceedingIcon = false
+	__Node__000011_test3.PreceedingIcon = ``
+
+	// SVGIcon values setup
+	__SVGIcon__000000_sync_alt_rotated_90.Name = `sync_alt_rotated_90`
+	__SVGIcon__000000_sync_alt_rotated_90.SVG = `<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">   <path d="M280-120 80-320l200-200 57 56-104 104h607v80H233l104 104-57 56Zm400-320-57-56 104-104H120v-80h607L623-784l57-56 200 200-200 200Z" transform="rotate(90, 480, -480)"/> </svg>`
 
 	// Tree values setup
 	__Tree__000000_test.Name = `test`
 
 	// Setup of pointers
 	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000006_test_1_3)
-	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000010_test3)
+	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000011_test3)
 	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000005_test_1_2_clickable_)
-	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000008_test_1_4)
+	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000009_test_1_4)
 	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000004_test_1_1)
 	__Node__000000_root1.Buttons = append(__Node__000000_root1.Buttons, __Button__000003_dynamic_form)
 	__Node__000000_root1.Buttons = append(__Node__000000_root1.Buttons, __Button__000004_key)
-	__Node__000001_root2.Children = append(__Node__000001_root2.Children, __Node__000009_test2_1)
+	__Node__000001_root2.Children = append(__Node__000001_root2.Children, __Node__000010_test2_1)
 	__Node__000001_root2.Buttons = append(__Node__000001_root2.Buttons, __Button__000006_root_2_add)
 	__Node__000002_root3.Children = append(__Node__000002_root3.Children, __Node__000003_root3_test3)
 	__Node__000004_test_1_1.Buttons = append(__Node__000004_test_1_1.Buttons, __Button__000005_logout)
 	__Node__000004_test_1_1.Buttons = append(__Node__000004_test_1_1.Buttons, __Button__000002_dataset)
 	__Node__000005_test_1_2_clickable_.Buttons = append(__Node__000005_test_1_2_clickable_.Buttons, __Button__000000_Test_1_2_add)
 	__Node__000006_test_1_3.Children = append(__Node__000006_test_1_3.Children, __Node__000007_test_1_3_1)
-	__Node__000010_test3.Buttons = append(__Node__000010_test3.Buttons, __Button__000008_test)
-	__Node__000010_test3.Buttons = append(__Node__000010_test3.Buttons, __Button__000007_settings)
-	__Node__000010_test3.Buttons = append(__Node__000010_test3.Buttons, __Button__000001_arrow_circle_left)
+	__Node__000006_test_1_3.Children = append(__Node__000006_test_1_3.Children, __Node__000008_test_1_3_1_svg_icon)
+	__Node__000008_test_1_3_1_svg_icon.PreceedingSVGIcon = __SVGIcon__000000_sync_alt_rotated_90
+	__Node__000011_test3.Buttons = append(__Node__000011_test3.Buttons, __Button__000008_test)
+	__Node__000011_test3.Buttons = append(__Node__000011_test3.Buttons, __Button__000007_settings)
+	__Node__000011_test3.Buttons = append(__Node__000011_test3.Buttons, __Button__000001_arrow_circle_left)
 	__Tree__000000_test.RootNodes = append(__Tree__000000_test.RootNodes, __Node__000000_root1)
 	__Tree__000000_test.RootNodes = append(__Tree__000000_test.RootNodes, __Node__000001_root2)
 	__Tree__000000_test.RootNodes = append(__Tree__000000_test.RootNodes, __Node__000002_root3)

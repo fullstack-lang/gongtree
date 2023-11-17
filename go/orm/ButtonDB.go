@@ -318,7 +318,13 @@ func (backRepoButton *BackRepoButtonStruct) CheckoutPhaseTwo(backRepo *BackRepoS
 func (backRepoButton *BackRepoButtonStruct) CheckoutPhaseTwoInstance(backRepo *BackRepoStruct, buttonDB *ButtonDB) (Error error) {
 
 	button := backRepoButton.Map_ButtonDBID_ButtonPtr[buttonDB.ID]
-	_ = button // sometimes, there is no code generated. This lines voids the "unused variable" compilation error
+
+	buttonDB.DecodePointers(backRepo, button)
+
+	return
+}
+
+func (buttonDB *ButtonDB) DecodePointers(backRepo *BackRepoStruct, button *models.Button) {
 
 	// insertion point for checkout of pointer encoding
 	return
@@ -581,7 +587,7 @@ func (backRepoButton *BackRepoButtonStruct) ResetReversePointers(backRepo *BackR
 	return
 }
 
-func (backRepoButton *BackRepoButtonStruct) ResetReversePointersInstance(backRepo *BackRepoStruct, idx uint, astruct *models.Button) (Error error) {
+func (backRepoButton *BackRepoButtonStruct) ResetReversePointersInstance(backRepo *BackRepoStruct, idx uint, button *models.Button) (Error error) {
 
 	// fetch matching buttonDB
 	if buttonDB, ok := backRepoButton.Map_ButtonDBID_ButtonDB[idx]; ok {
