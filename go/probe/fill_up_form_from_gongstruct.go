@@ -34,6 +34,16 @@ func FillUpFormFromGongstruct[T models.Gongstruct](instance *T, probe *Probe) {
 			),
 		}).Stage(formStage)
 		FillUpForm(instancesTyped, formGroup, probe)
+	case *models.SVGIcon:
+		formGroup := (&gongtable.FormGroup{
+			Name:  gongtable.FormGroupDefaultName.ToString(),
+			Label: "Update SVGIcon Form",
+			OnSave: __gong__New__SVGIconFormCallback(
+				instancesTyped,
+				probe,
+			),
+		}).Stage(formStage)
+		FillUpForm(instancesTyped, formGroup, probe)
 	case *models.Tree:
 		formGroup := (&gongtable.FormGroup{
 			Name:  gongtable.FormGroupDefaultName.ToString(),

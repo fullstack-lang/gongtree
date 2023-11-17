@@ -24,6 +24,8 @@ func fillUpTablePointerToGongstruct[T models.PointerToGongstruct](
 		fillUpTable[models.Button](probe)
 	case *models.Node:
 		fillUpTable[models.Node](probe)
+	case *models.SVGIcon:
+		fillUpTable[models.SVGIcon](probe)
 	case *models.Tree:
 		fillUpTable[models.Tree](probe)
 	default:

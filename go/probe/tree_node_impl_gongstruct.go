@@ -58,6 +58,9 @@ func (nodeImplGongstruct *TreeNodeImplGongstruct) OnAfterUpdate(
 	if nodeImplGongstruct.gongStruct.GetName() == "Node" {
 		fillUpTable[models.Node](nodeImplGongstruct.probe)
 	}
+	if nodeImplGongstruct.gongStruct.GetName() == "SVGIcon" {
+		fillUpTable[models.SVGIcon](nodeImplGongstruct.probe)
+	}
 	if nodeImplGongstruct.gongStruct.GetName() == "Tree" {
 		fillUpTable[models.Tree](nodeImplGongstruct.probe)
 	}
