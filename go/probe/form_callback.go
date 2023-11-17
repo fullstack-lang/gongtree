@@ -64,6 +64,8 @@ func (buttonFormCallback *ButtonFormCallback) OnSave() {
 			FormDivBasicFieldToField(&(button_.Name), formDiv)
 		case "Icon":
 			FormDivBasicFieldToField(&(button_.Icon), formDiv)
+		case "SVGIcon":
+			FormDivSelectFieldToField(&(button_.SVGIcon), buttonFormCallback.probe.stageOfInterest, formDiv)
 		case "Node:Buttons":
 			// we need to retrieve the field owner before the change
 			var pastNodeOwner *models.Node

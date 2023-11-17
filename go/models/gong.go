@@ -711,6 +711,8 @@ func GetAssociationName[Type Gongstruct]() *Type {
 	case Button:
 		return any(&Button{
 			// Initialisation of associations
+			// field is initialized with an instance of SVGIcon with the name of the field
+			SVGIcon: &SVGIcon{Name: "SVGIcon"},
 		}).(*Type)
 	case Node:
 		return any(&Node{
@@ -754,6 +756,23 @@ func GetPointerReverseMap[Start, End Gongstruct](fieldname string, stage *StageS
 	case Button:
 		switch fieldname {
 		// insertion point for per direct association field
+		case "SVGIcon":
+			res := make(map[*SVGIcon][]*Button)
+			for button := range stage.Buttons {
+				if button.SVGIcon != nil {
+					svgicon_ := button.SVGIcon
+					var buttons []*Button
+					_, ok := res[svgicon_]
+					if ok {
+						buttons = res[svgicon_]
+					} else {
+						buttons = make([]*Button, 0)
+					}
+					buttons = append(buttons, button)
+					res[svgicon_] = buttons
+				}
+			}
+			return any(res).(map[*End][]*Start)
 		}
 	// reverse maps of direct associations of Node
 	case Node:
@@ -899,7 +918,7 @@ func GetFields[Type Gongstruct]() (res []string) {
 	switch any(ret).(type) {
 	// insertion point for generic get gongstruct name
 	case Button:
-		res = []string{"Name", "Icon"}
+		res = []string{"Name", "Icon", "SVGIcon"}
 	case Node:
 		res = []string{"Name", "BackgroundColor", "IsExpanded", "HasCheckboxButton", "IsChecked", "IsCheckboxDisabled", "IsInEditMode", "IsNodeClickable", "IsWithPreceedingIcon", "PreceedingIcon", "PreceedingSVGIcon", "Children", "Buttons"}
 	case SVGIcon:
@@ -957,7 +976,7 @@ func GetFieldsFromPointer[Type PointerToGongstruct]() (res []string) {
 	switch any(ret).(type) {
 	// insertion point for generic get gongstruct name
 	case *Button:
-		res = []string{"Name", "Icon"}
+		res = []string{"Name", "Icon", "SVGIcon"}
 	case *Node:
 		res = []string{"Name", "BackgroundColor", "IsExpanded", "HasCheckboxButton", "IsChecked", "IsCheckboxDisabled", "IsInEditMode", "IsNodeClickable", "IsWithPreceedingIcon", "PreceedingIcon", "PreceedingSVGIcon", "Children", "Buttons"}
 	case *SVGIcon:
@@ -979,6 +998,10 @@ func GetFieldStringValueFromPointer[Type PointerToGongstruct](instance Type, fie
 			res = inferedInstance.Name
 		case "Icon":
 			res = inferedInstance.Icon
+		case "SVGIcon":
+			if inferedInstance.SVGIcon != nil {
+				res = inferedInstance.SVGIcon.Name
+			}
 		}
 	case *Node:
 		switch fieldName {
@@ -1060,6 +1083,10 @@ func GetFieldStringValue[Type Gongstruct](instance Type, fieldName string) (res 
 			res = inferedInstance.Name
 		case "Icon":
 			res = inferedInstance.Icon
+		case "SVGIcon":
+			if inferedInstance.SVGIcon != nil {
+				res = inferedInstance.SVGIcon.Name
+			}
 		}
 	case Node:
 		switch fieldName {

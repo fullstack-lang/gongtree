@@ -721,6 +721,9 @@ func UnmarshallGongstructStaging(stage *StageStruct, cmap *ast.CommentMap, assig
 			case "Button":
 				switch fieldName {
 				// insertion point for field dependant code
+				case "SVGIcon":
+					targetIdentifier := ident.Name
+					__gong__map_Button[identifier].SVGIcon = __gong__map_SVGIcon[targetIdentifier]
 				}
 			case "Node":
 				switch fieldName {

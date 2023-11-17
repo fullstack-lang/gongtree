@@ -89,6 +89,9 @@ func (stage *StageStruct) StageBranchButton(button *Button) {
 	button.Stage(stage)
 
 	//insertion point for the staging of instances referenced by pointers
+	if button.SVGIcon != nil {
+		StageBranch(stage, button.SVGIcon)
+	}
 
 	//insertion point for the staging of instances referenced by slice of pointers
 
@@ -188,6 +191,9 @@ func (stage *StageStruct) UnstageBranchButton(button *Button) {
 	button.Unstage(stage)
 
 	//insertion point for the staging of instances referenced by pointers
+	if button.SVGIcon != nil {
+		UnstageBranch(stage, button.SVGIcon)
+	}
 
 	//insertion point for the staging of instances referenced by slice of pointers
 

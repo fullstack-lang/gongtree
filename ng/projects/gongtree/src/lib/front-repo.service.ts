@@ -375,6 +375,13 @@ export class FrontRepoService {
             buttons.forEach(
               button => {
                 // insertion point sub sub template for ONE-/ZERO-ONE associations pointers redeeming
+                // insertion point for pointer field SVGIcon redeeming
+                {
+                  let _svgicon = this.frontRepo.SVGIcons.get(button.ButtonPointersEncoding.SVGIconID.Int64)
+                  if (_svgicon) {
+                    button.SVGIcon = _svgicon
+                  }
+                }
                 // insertion point for pointers decoding
               }
             )
@@ -460,6 +467,13 @@ export class FrontRepoService {
                 this.frontRepo.Buttons_batch.set(button.ID, button)
 
                 // insertion point for redeeming ONE/ZERO-ONE associations
+                // insertion point for pointer field SVGIcon redeeming
+                {
+                  let _svgicon = this.frontRepo.SVGIcons.get(button.ButtonPointersEncoding.SVGIconID.Int64)
+                  if (_svgicon) {
+                    button.SVGIcon = _svgicon
+                  }
+                }
               }
             )
 

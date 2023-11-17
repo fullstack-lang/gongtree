@@ -313,6 +313,14 @@ func (stage *StageStruct) Marshall(file *os.File, modelsPackageName, packageName
 		map_Button_Identifiers[button] = id
 
 		// Initialisation of values
+		if button.SVGIcon != nil {
+			setPointerField = PointerFieldInitStatement
+			setPointerField = strings.ReplaceAll(setPointerField, "{{Identifier}}", id)
+			setPointerField = strings.ReplaceAll(setPointerField, "{{GeneratedFieldName}}", "SVGIcon")
+			setPointerField = strings.ReplaceAll(setPointerField, "{{GeneratedFieldNameValue}}", map_SVGIcon_Identifiers[button.SVGIcon])
+			pointersInitializesStatements += setPointerField
+		}
+
 	}
 
 	for idx, node := range nodeOrdered {

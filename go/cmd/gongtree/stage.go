@@ -39,15 +39,16 @@ func stageInjection(stage *models.StageStruct) {
 	// Declaration of instances to stage
 
 	// Declarations of staged instances of Button
-	__Button__000000_Test_1_2_add := (&models.Button{Name: `Test 1.2 add`}).Stage(stage)
-	__Button__000001_arrow_circle_left := (&models.Button{Name: `arrow_circle_left`}).Stage(stage)
-	__Button__000002_dataset := (&models.Button{Name: `dataset`}).Stage(stage)
-	__Button__000003_dynamic_form := (&models.Button{Name: `dynamic_form`}).Stage(stage)
-	__Button__000004_key := (&models.Button{Name: `key`}).Stage(stage)
-	__Button__000005_logout := (&models.Button{Name: `logout`}).Stage(stage)
-	__Button__000006_root_2_add := (&models.Button{Name: `root 2 - add`}).Stage(stage)
-	__Button__000007_settings := (&models.Button{Name: `settings`}).Stage(stage)
-	__Button__000008_test := (&models.Button{Name: `test`}).Stage(stage)
+	__Button__000000_PreceedingSVGIcon := (&models.Button{Name: `PreceedingSVGIcon`}).Stage(stage)
+	__Button__000001_Test_1_2_add := (&models.Button{Name: `Test 1.2 add`}).Stage(stage)
+	__Button__000002_arrow_circle_left := (&models.Button{Name: `arrow_circle_left`}).Stage(stage)
+	__Button__000003_dataset := (&models.Button{Name: `dataset`}).Stage(stage)
+	__Button__000004_dynamic_form := (&models.Button{Name: `dynamic_form`}).Stage(stage)
+	__Button__000005_key := (&models.Button{Name: `key`}).Stage(stage)
+	__Button__000006_logout := (&models.Button{Name: `logout`}).Stage(stage)
+	__Button__000007_root_2_add := (&models.Button{Name: `root 2 - add`}).Stage(stage)
+	__Button__000008_settings := (&models.Button{Name: `settings`}).Stage(stage)
+	__Button__000009_test := (&models.Button{Name: `test`}).Stage(stage)
 
 	// Declarations of staged instances of Node
 	__Node__000000_root1 := (&models.Node{Name: `root1`}).Stage(stage)
@@ -72,40 +73,44 @@ func stageInjection(stage *models.StageStruct) {
 	// Setup of values
 
 	// Button values setup
-	__Button__000000_Test_1_2_add.Name = `Test 1.2 add`
-	__Button__000000_Test_1_2_add.Icon = `add`
+	__Button__000000_PreceedingSVGIcon.Name = `PreceedingSVGIcon`
+	__Button__000000_PreceedingSVGIcon.Icon = ``
 
 	// Button values setup
-	__Button__000001_arrow_circle_left.Name = `arrow_circle_left`
-	__Button__000001_arrow_circle_left.Icon = `arrow_circle_left`
+	__Button__000001_Test_1_2_add.Name = `Test 1.2 add`
+	__Button__000001_Test_1_2_add.Icon = `add`
 
 	// Button values setup
-	__Button__000002_dataset.Name = `dataset`
-	__Button__000002_dataset.Icon = `dataset`
+	__Button__000002_arrow_circle_left.Name = `arrow_circle_left`
+	__Button__000002_arrow_circle_left.Icon = `arrow_circle_left`
 
 	// Button values setup
-	__Button__000003_dynamic_form.Name = `dynamic_form`
-	__Button__000003_dynamic_form.Icon = `dynamic_form`
+	__Button__000003_dataset.Name = `dataset`
+	__Button__000003_dataset.Icon = `dataset`
 
 	// Button values setup
-	__Button__000004_key.Name = `key`
-	__Button__000004_key.Icon = `key`
+	__Button__000004_dynamic_form.Name = `dynamic_form`
+	__Button__000004_dynamic_form.Icon = `dynamic_form`
 
 	// Button values setup
-	__Button__000005_logout.Name = `logout`
-	__Button__000005_logout.Icon = `logout`
+	__Button__000005_key.Name = `key`
+	__Button__000005_key.Icon = `key`
 
 	// Button values setup
-	__Button__000006_root_2_add.Name = `root 2 - add`
-	__Button__000006_root_2_add.Icon = `add`
+	__Button__000006_logout.Name = `logout`
+	__Button__000006_logout.Icon = `logout`
 
 	// Button values setup
-	__Button__000007_settings.Name = `settings`
-	__Button__000007_settings.Icon = `settings`
+	__Button__000007_root_2_add.Name = `root 2 - add`
+	__Button__000007_root_2_add.Icon = `add`
 
 	// Button values setup
-	__Button__000008_test.Name = `test`
-	__Button__000008_test.Icon = `edit`
+	__Button__000008_settings.Name = `settings`
+	__Button__000008_settings.Icon = `settings`
+
+	// Button values setup
+	__Button__000009_test.Name = `test`
+	__Button__000009_test.Icon = `edit`
 
 	// Node values setup
 	__Node__000000_root1.Name = `root1`
@@ -259,25 +264,27 @@ func stageInjection(stage *models.StageStruct) {
 	__Tree__000000_test.Name = `test`
 
 	// Setup of pointers
+	__Button__000000_PreceedingSVGIcon.SVGIcon = __SVGIcon__000000_sync_alt_rotated_90
 	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000006_test_1_3)
 	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000011_test3)
 	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000005_test_1_2_clickable_)
 	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000009_test_1_4)
 	__Node__000000_root1.Children = append(__Node__000000_root1.Children, __Node__000004_test_1_1)
-	__Node__000000_root1.Buttons = append(__Node__000000_root1.Buttons, __Button__000003_dynamic_form)
-	__Node__000000_root1.Buttons = append(__Node__000000_root1.Buttons, __Button__000004_key)
+	__Node__000000_root1.Buttons = append(__Node__000000_root1.Buttons, __Button__000004_dynamic_form)
+	__Node__000000_root1.Buttons = append(__Node__000000_root1.Buttons, __Button__000005_key)
 	__Node__000001_root2.Children = append(__Node__000001_root2.Children, __Node__000010_test2_1)
-	__Node__000001_root2.Buttons = append(__Node__000001_root2.Buttons, __Button__000006_root_2_add)
+	__Node__000001_root2.Buttons = append(__Node__000001_root2.Buttons, __Button__000007_root_2_add)
 	__Node__000002_root3.Children = append(__Node__000002_root3.Children, __Node__000003_root3_test3)
-	__Node__000004_test_1_1.Buttons = append(__Node__000004_test_1_1.Buttons, __Button__000005_logout)
-	__Node__000004_test_1_1.Buttons = append(__Node__000004_test_1_1.Buttons, __Button__000002_dataset)
-	__Node__000005_test_1_2_clickable_.Buttons = append(__Node__000005_test_1_2_clickable_.Buttons, __Button__000000_Test_1_2_add)
+	__Node__000004_test_1_1.Buttons = append(__Node__000004_test_1_1.Buttons, __Button__000006_logout)
+	__Node__000004_test_1_1.Buttons = append(__Node__000004_test_1_1.Buttons, __Button__000003_dataset)
+	__Node__000005_test_1_2_clickable_.Buttons = append(__Node__000005_test_1_2_clickable_.Buttons, __Button__000001_Test_1_2_add)
 	__Node__000006_test_1_3.Children = append(__Node__000006_test_1_3.Children, __Node__000007_test_1_3_1)
 	__Node__000006_test_1_3.Children = append(__Node__000006_test_1_3.Children, __Node__000008_test_1_3_1_svg_icon)
 	__Node__000008_test_1_3_1_svg_icon.PreceedingSVGIcon = __SVGIcon__000000_sync_alt_rotated_90
-	__Node__000011_test3.Buttons = append(__Node__000011_test3.Buttons, __Button__000008_test)
-	__Node__000011_test3.Buttons = append(__Node__000011_test3.Buttons, __Button__000007_settings)
-	__Node__000011_test3.Buttons = append(__Node__000011_test3.Buttons, __Button__000001_arrow_circle_left)
+	__Node__000008_test_1_3_1_svg_icon.Buttons = append(__Node__000008_test_1_3_1_svg_icon.Buttons, __Button__000000_PreceedingSVGIcon)
+	__Node__000011_test3.Buttons = append(__Node__000011_test3.Buttons, __Button__000009_test)
+	__Node__000011_test3.Buttons = append(__Node__000011_test3.Buttons, __Button__000008_settings)
+	__Node__000011_test3.Buttons = append(__Node__000011_test3.Buttons, __Button__000002_arrow_circle_left)
 	__Tree__000000_test.RootNodes = append(__Tree__000000_test.RootNodes, __Node__000000_root1)
 	__Tree__000000_test.RootNodes = append(__Tree__000000_test.RootNodes, __Node__000001_root2)
 	__Tree__000000_test.RootNodes = append(__Tree__000000_test.RootNodes, __Node__000002_root3)

@@ -45,6 +45,10 @@ type ButtonAPI struct {
 // reverse pointers of slice of poitners to Struct
 type ButtonPointersEncoding struct {
 	// insertion for pointer fields encoding declaration
+
+	// field SVGIcon is a pointer to another Struct (optional or 0..1)
+	// This field is generated into another field to enable AS ONE association
+	SVGIconID sql.NullInt64
 }
 
 // ButtonDB describes a button in the database
@@ -214,6 +218,18 @@ func (backRepoButton *BackRepoButtonStruct) CommitPhaseTwoInstance(backRepo *Bac
 		buttonDB.CopyBasicFieldsFromButton(button)
 
 		// insertion point for translating pointers encodings into actual pointers
+		// commit pointer value button.SVGIcon translates to updating the button.SVGIconID
+		buttonDB.SVGIconID.Valid = true // allow for a 0 value (nil association)
+		if button.SVGIcon != nil {
+			if SVGIconId, ok := backRepo.BackRepoSVGIcon.Map_SVGIconPtr_SVGIconDBID[button.SVGIcon]; ok {
+				buttonDB.SVGIconID.Int64 = int64(SVGIconId)
+				buttonDB.SVGIconID.Valid = true
+			}
+		} else {
+			buttonDB.SVGIconID.Int64 = 0
+			buttonDB.SVGIconID.Valid = true
+		}
+
 		query := backRepoButton.db.Save(&buttonDB)
 		if query.Error != nil {
 			log.Fatalln(query.Error)
@@ -327,6 +343,11 @@ func (backRepoButton *BackRepoButtonStruct) CheckoutPhaseTwoInstance(backRepo *B
 func (buttonDB *ButtonDB) DecodePointers(backRepo *BackRepoStruct, button *models.Button) {
 
 	// insertion point for checkout of pointer encoding
+	// SVGIcon field
+	button.SVGIcon = nil
+	if buttonDB.SVGIconID.Int64 != 0 {
+		button.SVGIcon = backRepo.BackRepoSVGIcon.Map_SVGIconDBID_SVGIconPtr[uint(buttonDB.SVGIconID.Int64)]
+	}
 	return
 }
 
@@ -567,6 +588,12 @@ func (backRepoButton *BackRepoButtonStruct) RestorePhaseTwo() {
 		_ = buttonDB
 
 		// insertion point for reindexing pointers encoding
+		// reindexing SVGIcon field
+		if buttonDB.SVGIconID.Int64 != 0 {
+			buttonDB.SVGIconID.Int64 = int64(BackRepoSVGIconid_atBckpTime_newID[uint(buttonDB.SVGIconID.Int64)])
+			buttonDB.SVGIconID.Valid = true
+		}
+
 		// update databse with new index encoding
 		query := backRepoButton.db.Model(buttonDB).Updates(*buttonDB)
 		if query.Error != nil {
