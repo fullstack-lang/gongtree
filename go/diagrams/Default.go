@@ -239,7 +239,7 @@ func DefaultInjection(stage *models.StageStruct) {
 	__GongStructShape__000000_Default_Button.ShowNbInstances = false
 	__GongStructShape__000000_Default_Button.NbInstances = 0
 	__GongStructShape__000000_Default_Button.Width = 240.000000
-	__GongStructShape__000000_Default_Button.Heigth = 93.000000
+	__GongStructShape__000000_Default_Button.Height = 93.000000
 	__GongStructShape__000000_Default_Button.IsSelected = false
 
 	// GongStructShape values setup
@@ -252,7 +252,7 @@ func DefaultInjection(stage *models.StageStruct) {
 	__GongStructShape__000001_Default_Node.ShowNbInstances = false
 	__GongStructShape__000001_Default_Node.NbInstances = 0
 	__GongStructShape__000001_Default_Node.Width = 240.000000
-	__GongStructShape__000001_Default_Node.Heigth = 337.000000
+	__GongStructShape__000001_Default_Node.Height = 337.000000
 	__GongStructShape__000001_Default_Node.IsSelected = false
 
 	// GongStructShape values setup
@@ -265,7 +265,7 @@ func DefaultInjection(stage *models.StageStruct) {
 	__GongStructShape__000002_Default_Tree.ShowNbInstances = false
 	__GongStructShape__000002_Default_Tree.NbInstances = 0
 	__GongStructShape__000002_Default_Tree.Width = 240.000000
-	__GongStructShape__000002_Default_Tree.Heigth = 78.000000
+	__GongStructShape__000002_Default_Tree.Height = 78.000000
 	__GongStructShape__000002_Default_Tree.IsSelected = false
 
 	// Link values setup
@@ -399,5 +399,3 @@ func DefaultInjection(stage *models.StageStruct) {
 	__Link__000001_Children.Middlevertice = __Vertice__000001_Verticle_in_class_diagram_Default_in_middle_between_Default_Node_and_Default_Node
 	__Link__000002_RootNodes.Middlevertice = __Vertice__000002_Verticle_in_class_diagram_Default_in_middle_between_Default_Tree_and_Default_Node
 }
-
-
