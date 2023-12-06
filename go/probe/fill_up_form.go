@@ -20,8 +20,10 @@ func FillUpForm[T models.Gongstruct](
 	// insertion point
 	case *models.Button:
 		// insertion point
-		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup, false)
-		BasicFieldtoForm("Icon", instanceWithInferedType.Icon, instanceWithInferedType, probe.formStage, formGroup, false)
+		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
+		BasicFieldtoForm("Icon", instanceWithInferedType.Icon, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
 		AssociationFieldToForm("SVGIcon", instanceWithInferedType.SVGIcon, formGroup, probe)
 		{
 			var rf models.ReverseField
@@ -48,16 +50,26 @@ func FillUpForm[T models.Gongstruct](
 
 	case *models.Node:
 		// insertion point
-		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup, false)
-		BasicFieldtoForm("BackgroundColor", instanceWithInferedType.BackgroundColor, instanceWithInferedType, probe.formStage, formGroup, false)
-		BasicFieldtoForm("IsExpanded", instanceWithInferedType.IsExpanded, instanceWithInferedType, probe.formStage, formGroup, false)
-		BasicFieldtoForm("HasCheckboxButton", instanceWithInferedType.HasCheckboxButton, instanceWithInferedType, probe.formStage, formGroup, false)
-		BasicFieldtoForm("IsChecked", instanceWithInferedType.IsChecked, instanceWithInferedType, probe.formStage, formGroup, false)
-		BasicFieldtoForm("IsCheckboxDisabled", instanceWithInferedType.IsCheckboxDisabled, instanceWithInferedType, probe.formStage, formGroup, false)
-		BasicFieldtoForm("IsInEditMode", instanceWithInferedType.IsInEditMode, instanceWithInferedType, probe.formStage, formGroup, false)
-		BasicFieldtoForm("IsNodeClickable", instanceWithInferedType.IsNodeClickable, instanceWithInferedType, probe.formStage, formGroup, false)
-		BasicFieldtoForm("IsWithPreceedingIcon", instanceWithInferedType.IsWithPreceedingIcon, instanceWithInferedType, probe.formStage, formGroup, false)
-		BasicFieldtoForm("PreceedingIcon", instanceWithInferedType.PreceedingIcon, instanceWithInferedType, probe.formStage, formGroup, false)
+		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
+		BasicFieldtoForm("BackgroundColor", instanceWithInferedType.BackgroundColor, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
+		BasicFieldtoForm("IsExpanded", instanceWithInferedType.IsExpanded, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
+		BasicFieldtoForm("HasCheckboxButton", instanceWithInferedType.HasCheckboxButton, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
+		BasicFieldtoForm("IsChecked", instanceWithInferedType.IsChecked, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
+		BasicFieldtoForm("IsCheckboxDisabled", instanceWithInferedType.IsCheckboxDisabled, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
+		BasicFieldtoForm("IsInEditMode", instanceWithInferedType.IsInEditMode, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
+		BasicFieldtoForm("IsNodeClickable", instanceWithInferedType.IsNodeClickable, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
+		BasicFieldtoForm("IsWithPreceedingIcon", instanceWithInferedType.IsWithPreceedingIcon, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
+		BasicFieldtoForm("PreceedingIcon", instanceWithInferedType.PreceedingIcon, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
 		AssociationFieldToForm("PreceedingSVGIcon", instanceWithInferedType.PreceedingSVGIcon, formGroup, probe)
 		AssociationSliceToForm("Children", instanceWithInferedType, &instanceWithInferedType.Children, formGroup, probe)
 		AssociationSliceToForm("Buttons", instanceWithInferedType, &instanceWithInferedType.Buttons, formGroup, probe)
@@ -108,12 +120,15 @@ func FillUpForm[T models.Gongstruct](
 
 	case *models.SVGIcon:
 		// insertion point
-		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup, false)
-		BasicFieldtoForm("SVG", instanceWithInferedType.SVG, instanceWithInferedType, probe.formStage, formGroup, false)
+		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup, 
+			false, true, 600, false, 0)
+		BasicFieldtoForm("SVG", instanceWithInferedType.SVG, instanceWithInferedType, probe.formStage, formGroup, 
+			false, true, 600, true, 300)
 
 	case *models.Tree:
 		// insertion point
-		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup, false)
+		BasicFieldtoForm("Name", instanceWithInferedType.Name, instanceWithInferedType, probe.formStage, formGroup, 
+			false, false, 0, false, 0)
 		AssociationSliceToForm("RootNodes", instanceWithInferedType, &instanceWithInferedType.RootNodes, formGroup, probe)
 
 	default:
