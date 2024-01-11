@@ -32,9 +32,23 @@
 			"problemMatcher": []
 		},
 		{
+			"label": "03 - ngbuild",
+			"type": "shell",
+			"command": "cd ng; ngbuild",
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
 			"label": "04 - ng serve --host=127.0.0.1",
 			"type": "shell",
 			"command": "cd ng; ng serve --host=127.0.0.1",
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "04 - ngserve",
+			"type": "shell",
+			"command": "cd ng; ngserve",
 			"group": "build",
 			"problemMatcher": []
 		},
