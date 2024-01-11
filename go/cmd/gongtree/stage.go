@@ -198,6 +198,7 @@ func stageInjection(stage *models.StageStruct) {
 
 	// Node values setup
 	__Node__000007_test_1_3_1.Name = `test 1.3.1`
+	__Node__000007_test_1_3_1.FontStyle = models.ITALIC
 	__Node__000007_test_1_3_1.BackgroundColor = ``
 	__Node__000007_test_1_3_1.IsExpanded = false
 	__Node__000007_test_1_3_1.HasCheckboxButton = false

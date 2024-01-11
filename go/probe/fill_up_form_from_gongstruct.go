@@ -12,47 +12,61 @@ func FillUpFormFromGongstruct[T models.Gongstruct](instance *T, probe *Probe) {
 	formStage.Reset()
 	formStage.Commit()
 
+	FillUpNamedFormFromGongstruct[T](instance, probe, formStage, gongtable.FormGroupDefaultName.ToString())
+
+}
+
+func FillUpNamedFormFromGongstruct[T models.Gongstruct](instance *T, probe *Probe, formStage *gongtable.StageStruct, formName string) {
+
 	switch instancesTyped := any(instance).(type) {
 	// insertion point
 	case *models.Button:
 		formGroup := (&gongtable.FormGroup{
-			Name:  gongtable.FormGroupDefaultName.ToString(),
-			Label: "Update Button Form",
-			OnSave: __gong__New__ButtonFormCallback(
-				instancesTyped,
-				probe,
-			),
+			Name:  formName,
+			Label: "Button Form",
 		}).Stage(formStage)
+		formGroup.OnSave = __gong__New__ButtonFormCallback(
+			instancesTyped,
+			probe,
+			formGroup,
+		)
+		formGroup.HasSuppressButton = true
 		FillUpForm(instancesTyped, formGroup, probe)
 	case *models.Node:
 		formGroup := (&gongtable.FormGroup{
-			Name:  gongtable.FormGroupDefaultName.ToString(),
-			Label: "Update Node Form",
-			OnSave: __gong__New__NodeFormCallback(
-				instancesTyped,
-				probe,
-			),
+			Name:  formName,
+			Label: "Node Form",
 		}).Stage(formStage)
+		formGroup.OnSave = __gong__New__NodeFormCallback(
+			instancesTyped,
+			probe,
+			formGroup,
+		)
+		formGroup.HasSuppressButton = true
 		FillUpForm(instancesTyped, formGroup, probe)
 	case *models.SVGIcon:
 		formGroup := (&gongtable.FormGroup{
-			Name:  gongtable.FormGroupDefaultName.ToString(),
-			Label: "Update SVGIcon Form",
-			OnSave: __gong__New__SVGIconFormCallback(
-				instancesTyped,
-				probe,
-			),
+			Name:  formName,
+			Label: "SVGIcon Form",
 		}).Stage(formStage)
+		formGroup.OnSave = __gong__New__SVGIconFormCallback(
+			instancesTyped,
+			probe,
+			formGroup,
+		)
+		formGroup.HasSuppressButton = true
 		FillUpForm(instancesTyped, formGroup, probe)
 	case *models.Tree:
 		formGroup := (&gongtable.FormGroup{
-			Name:  gongtable.FormGroupDefaultName.ToString(),
-			Label: "Update Tree Form",
-			OnSave: __gong__New__TreeFormCallback(
-				instancesTyped,
-				probe,
-			),
+			Name:  formName,
+			Label: "Tree Form",
 		}).Stage(formStage)
+		formGroup.OnSave = __gong__New__TreeFormCallback(
+			instancesTyped,
+			probe,
+			formGroup,
+		)
+		formGroup.HasSuppressButton = true
 		FillUpForm(instancesTyped, formGroup, probe)
 	default:
 		_ = instancesTyped

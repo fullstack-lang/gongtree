@@ -3,9 +3,9 @@ module github.com/fullstack-lang/gongtree
 go 1.21.0
 
 require (
-	github.com/fullstack-lang/gong v0.0.0-20231203075154-d4844c5feef6
-	github.com/fullstack-lang/gongdoc v0.0.0-20231202082305-5e436c8f5c5d
-	github.com/fullstack-lang/gongtable v0.0.0-20231202093416-4a8959bf53aa
+	github.com/fullstack-lang/gong v0.0.0-20240108004911-27d0448f3921
+	github.com/fullstack-lang/gongdoc v0.0.0-20240108004614-99e2a1e96aab
+	github.com/fullstack-lang/gongtable v0.0.0-20231214233720-0cdd8c1bf695
 	github.com/fullstack-lang/maticons v0.0.0-20230823061653-70c364fbdd00
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-contrib/static v0.0.1
@@ -23,7 +23,7 @@ require (
 	github.com/chenzhuoyu/iasm v0.9.1 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/frankban/quicktest v1.14.6 // indirect
-	github.com/fullstack-lang/gongsvg v0.0.0-20231206030418-4692a24ebdd9 // indirect
+	github.com/fullstack-lang/gongsvg v0.0.0-20240109012033-f2e46c204d7c // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/glebarez/go-sqlite v1.21.2 // indirect
@@ -52,7 +52,6 @@ require (
 	github.com/richardlehane/msoleps v1.0.3 // indirect
 	github.com/rogpeppe/fastuuid v1.2.0 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
-	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
 	github.com/shabbyrobe/xmlwriter v0.0.0-20230525083848-85336ec334fa // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.11 // indirect
