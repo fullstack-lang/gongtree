@@ -246,11 +246,13 @@ export class TreeComponent implements OnInit {
 
   onNodeClick(node: FlatNode): void {
 
-    this.gongtreeNodeService.updateFront(node.gongNode, this.GONG__StackPath).subscribe(
-      gongtreeNode => {
-        // console.log("onNodeClick: updated node")
-      }
-    )
+    if (node.gongNode.IsNodeClickable) {
+      this.gongtreeNodeService.updateFront(node.gongNode, this.GONG__StackPath).subscribe(
+        gongtreeNode => {
+          // console.log("onNodeClick: updated node")
+        }
+      )
+    }
   }
 
   getNodeBackgroundColor(node: FlatNode): string {

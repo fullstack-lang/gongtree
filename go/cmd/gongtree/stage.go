@@ -279,7 +279,7 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000002_root3.Children = append(__Node__000002_root3.Children, __Node__000003_root3_test3)
 	__Node__000004_test_1_1.Buttons = append(__Node__000004_test_1_1.Buttons, __Button__000006_logout)
 	__Node__000004_test_1_1.Buttons = append(__Node__000004_test_1_1.Buttons, __Button__000003_dataset)
-	__Node__000005_test_1_2_clickable_.Buttons = append(__Node__000005_test_1_2_clickable_.Buttons, __Button__000001_Test_1_2_add)
+	__Node__000005_test_1_2_clickable_.Buttons = append(__Node__000005_test_1_2_clickable_.Buttons, __Button__000005_key)
 	__Node__000006_test_1_3.Children = append(__Node__000006_test_1_3.Children, __Node__000007_test_1_3_1)
 	__Node__000006_test_1_3.Children = append(__Node__000006_test_1_3.Children, __Node__000008_test_1_3_1_svg_icon)
 	__Node__000008_test_1_3_1_svg_icon.PreceedingSVGIcon = __SVGIcon__000000_sync_alt_rotated_90
