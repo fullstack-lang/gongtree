@@ -153,7 +153,7 @@ export class TreeComponent implements OnInit {
         var rootNodes = new Array<Node>()
 
         // register all icons
-        for (let svgIcon of this.gongtreeFrontRepo.SVGIcons_array) {
+        for (let svgIcon of this.gongtreeFrontRepo.getFrontArray<gongtree.SVGIcon>(gongtree.SVGIcon.GONGSTRUCT_NAME)) {
           this.iconService.registerIcon(svgIcon.Name, svgIcon.SVG)
         }
 
