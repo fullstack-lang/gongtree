@@ -167,7 +167,7 @@ func stageInjection(stage *models.StageStruct) {
 	__Node__000004_test_1_1.HasCheckboxButton = true
 	__Node__000004_test_1_1.IsChecked = true
 	__Node__000004_test_1_1.IsCheckboxDisabled = true
-	__Node__000004_test_1_1.IsInEditMode = true
+	__Node__000004_test_1_1.IsInEditMode = false
 	__Node__000004_test_1_1.IsNodeClickable = false
 	__Node__000004_test_1_1.IsWithPreceedingIcon = false
 	__Node__000004_test_1_1.PreceedingIcon = ``
