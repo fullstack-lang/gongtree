@@ -183,6 +183,7 @@ func (controller *Controller) onWebSocketRequestForBackRepoContent(c *gin.Contex
 	orm.CopyBackRepoToBackRepoData(backRepo, backRepoData)
 
 	err = wsConnection.WriteJSON(backRepoData)
+	log.Println("Stack github.com/fullstack-lang/gongtree/go, onWebSocketRequestForBackRepoContent, first sent back repo of", stackPath)
 	if err != nil {
 		log.Println("client no longer receiver web socket message, assuming it is no longer alive, closing websocket handler")
 		fmt.Println(err)
@@ -198,7 +199,7 @@ func (controller *Controller) onWebSocketRequestForBackRepoContent(c *gin.Contex
 		// Send backRepo data
 		err = wsConnection.WriteJSON(backRepoData)
 
-		log.Println("Stack github.com/fullstack-lang/gongtree/go, onWebSocketRequestForBackRepoContent, sent back repo")
+		log.Println("Stack github.com/fullstack-lang/gongtree/go, onWebSocketRequestForBackRepoContent, sent back repo of", stackPath)
 
 		if err != nil {
 			log.Println("client no longer receiver web socket message, assuming it is no longer alive, closing websocket handler")
