@@ -92,7 +92,7 @@ func registerControllers(r *gin.Engine) {
 // them on the web socket connection
 func (controller *Controller) onWebSocketRequestForCommitFromBackNb(c *gin.Context) {
 
-	log.Println("onWebSocketRequestForCommitFromBackNb")
+	log.Println("Stack github.com/fullstack-lang/gongtree/go, onWebSocketRequestForCommitFromBackNb")
 
 	// Upgrader specifies parameters for upgrading an HTTP connection to a
 	// WebSocket connection.
@@ -146,7 +146,7 @@ func (controller *Controller) onWebSocketRequestForCommitFromBackNb(c *gin.Conte
 // them on the web socket connection
 func (controller *Controller) onWebSocketRequestForBackRepoContent(c *gin.Context) {
 
-	log.Println("onWebSocketRequestForCommitFromBackNb")
+	log.Println("Stack github.com/fullstack-lang/gongtree/go, onWebSocketRequestForBackRepoContent")
 
 	// Upgrader specifies parameters for upgrading an HTTP connection to a
 	// WebSocket connection.
@@ -197,6 +197,9 @@ func (controller *Controller) onWebSocketRequestForBackRepoContent(c *gin.Contex
 
 		// Send backRepo data
 		err = wsConnection.WriteJSON(backRepoData)
+
+		log.Println("Stack github.com/fullstack-lang/gongtree/go, onWebSocketRequestForBackRepoContent, sent back repo")
+
 		if err != nil {
 			log.Println("client no longer receiver web socket message, assuming it is no longer alive, closing websocket handler")
 			fmt.Println(err)
