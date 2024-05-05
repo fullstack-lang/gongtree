@@ -2,13 +2,24 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable, Subscription, timer } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 
 import { Router, RouterState } from '@angular/router';
 
 
-import * as gongtree from 'gongtree'
+import * as gongtree from '../../../../gongtree/src/public-api'
 import { IconService } from '../icon-service.service';
 
 /**
@@ -35,7 +46,20 @@ interface FlatNode {
 @Component({
   selector: 'lib-tree',
   templateUrl: './tree.component.html',
-  styleUrls: ['./tree.component.css']
+  styleUrls: ['./tree.component.css'],
+  imports: [
+    CommonModule,
+
+    FormsModule,
+    ReactiveFormsModule,
+
+    MatIconModule,
+    MatButtonModule,
+    MatTreeModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+  ],
+  standalone: true,
 })
 export class TreeComponent implements OnInit {
 
