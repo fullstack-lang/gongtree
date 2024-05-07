@@ -12,6 +12,12 @@ import { AngularSplitModule } from 'angular-split';
 
 import { TreeComponent } from '../../projects/gongtreespecific/src/public-api';
 
+import { MaterialTableComponent } from '@vendored_components/github.com/fullstack-lang/gongtable/ng-github.com-fullstack-lang-gongtable/projects/gongtablespecific/src/lib/material-table/material-table.component';
+import { MaterialFormComponent } from '@vendored_components/github.com/fullstack-lang/gongtable/ng-github.com-fullstack-lang-gongtable/projects/gongtablespecific/src/lib/material-form/material-form.component';
+import * as gongtable from '@vendored_components/github.com/fullstack-lang/gongtable/ng-github.com-fullstack-lang-gongtable/projects/gongtable/src/public-api';
+import { PanelComponent } from '@vendored_components/github.com/fullstack-lang/gongdoc/ng-github.com-fullstack-lang-gongdoc/projects/gongdocspecific/src/public-api'
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,6 +32,9 @@ import { TreeComponent } from '../../projects/gongtreespecific/src/public-api';
     AngularSplitModule,
 
     TreeComponent,
+    MaterialTableComponent,
+    MaterialFormComponent,
+    PanelComponent,
   ]
 })
 export class AppComponent implements OnInit {

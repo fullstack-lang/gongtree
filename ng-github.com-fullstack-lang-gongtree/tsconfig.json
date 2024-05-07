@@ -6,12 +6,10 @@
     "strict": true,
     "noImplicitOverride": true,
     "paths": {
-      "gongtree": [
-        "./dist/gongtree"
+      "@vendored_components/*": [
+        "../vendor/*",
+        "../../../../*", // this is for when the probe imports its own component (it is not vendored)
       ],
-      "gongtreespecific": [
-        "./dist/gongtreespecific"
-      ]
     },
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -29,7 +27,7 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
