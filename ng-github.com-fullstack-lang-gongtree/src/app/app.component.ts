@@ -2,21 +2,31 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable, combineLatest, timer } from 'rxjs'
 
-import * as gongdoc from 'gongdoc'
-import * as gongtree from 'gongtree'
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
-import { GongdocModule } from 'gongdoc'
-import { GongdocspecificModule } from 'gongdocspecific'
+import { AngularSplitModule } from 'angular-split';
 
-import { GongtreeModule } from 'gongtree'
-import { GongtreespecificModule } from 'gongtreespecific'
-
-import { GongtableModule } from 'gongtable'
-import { GongtablespecificModule } from 'gongtablespecific'
+import { TreeComponent } from '../../projects/gongtreespecific/src/public-api';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  standalone: true,
+  imports: [
+    MatRadioModule,
+    FormsModule,
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+
+    AngularSplitModule,
+
+    TreeComponent,
+  ]
 })
 export class AppComponent implements OnInit {
 
