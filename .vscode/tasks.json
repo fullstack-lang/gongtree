@@ -27,28 +27,28 @@
 		{
 			"label": "03 - ng build",
 			"type": "shell",
-			"command": "cd ng; ng build",
+			"command": "cd ng-github.com-fullstack-lang-gongtree; ng build",
 			"group": "build",
 			"problemMatcher": []
 		},
 		{
 			"label": "03 - ngbuild",
 			"type": "shell",
-			"command": "cd ng; ngbuild",
+			"command": "cd ng-github.com-fullstack-lang-gongtree; ngbuild",
 			"group": "build",
 			"problemMatcher": []
 		},
 		{
 			"label": "04 - ng serve --host=127.0.0.1",
 			"type": "shell",
-			"command": "cd ng; ng serve --host=127.0.0.1",
+			"command": "cd ng-github.com-fullstack-lang-gongtree; ng serve --host=127.0.0.1",
 			"group": "build",
 			"problemMatcher": []
 		},
 		{
 			"label": "04 - ngserve",
 			"type": "shell",
-			"command": "cd ng; ngserve",
+			"command": "cd ng-github.com-fullstack-lang-gongtree; ngserve",
 			"group": "build",
 			"problemMatcher": []
 		},
