@@ -10,8 +10,12 @@ import (
 	"path/filepath"
 	"sync"
 
+	"github.com/fullstack-lang/gongtree/go/db"
 	"github.com/fullstack-lang/gongtree/go/models"
+
+	/* THIS IS REMOVED BY GONG COMPILER IF TARGET IS gorm
 	"github.com/fullstack-lang/gongtree/go/orm/dbgorm"
+	THIS IS REMOVED BY GONG COMPILER IF TARGET IS gorm */
 
 	"github.com/tealeg/xlsx/v3"
 )
@@ -40,12 +44,18 @@ type BackRepoStruct struct {
 
 func NewBackRepo(stage *models.StageStruct, filename string) (backRepo *BackRepoStruct) {
 
-	dbWrapper := dbgorm.NewDBWrapper(filename, "github_com_fullstack_lang_gongtree_go",
+	var db db.DBInterface
+
+	db = NewDBLite()
+
+	/* THIS IS REMOVED BY GONG COMPILER IF TARGET IS gorm
+	db = dbgorm.NewDBWrapper(filename, "github_com_fullstack_lang_gongtree_go",
 		&ButtonDB{},
 		&NodeDB{},
 		&SVGIconDB{},
 		&TreeDB{},
 	)
+	THIS IS REMOVED BY GONG COMPILER IF TARGET IS gorm */
 
 	backRepo = new(BackRepoStruct)
 
@@ -55,7 +65,7 @@ func NewBackRepo(stage *models.StageStruct, filename string) (backRepo *BackRepo
 		Map_ButtonDBID_ButtonDB:  make(map[uint]*ButtonDB, 0),
 		Map_ButtonPtr_ButtonDBID: make(map[*models.Button]uint, 0),
 
-		db:    dbWrapper,
+		db:    db,
 		stage: stage,
 	}
 	backRepo.BackRepoNode = BackRepoNodeStruct{
@@ -63,7 +73,7 @@ func NewBackRepo(stage *models.StageStruct, filename string) (backRepo *BackRepo
 		Map_NodeDBID_NodeDB:  make(map[uint]*NodeDB, 0),
 		Map_NodePtr_NodeDBID: make(map[*models.Node]uint, 0),
 
-		db:    dbWrapper,
+		db:    db,
 		stage: stage,
 	}
 	backRepo.BackRepoSVGIcon = BackRepoSVGIconStruct{
@@ -71,7 +81,7 @@ func NewBackRepo(stage *models.StageStruct, filename string) (backRepo *BackRepo
 		Map_SVGIconDBID_SVGIconDB:  make(map[uint]*SVGIconDB, 0),
 		Map_SVGIconPtr_SVGIconDBID: make(map[*models.SVGIcon]uint, 0),
 
-		db:    dbWrapper,
+		db:    db,
 		stage: stage,
 	}
 	backRepo.BackRepoTree = BackRepoTreeStruct{
@@ -79,7 +89,7 @@ func NewBackRepo(stage *models.StageStruct, filename string) (backRepo *BackRepo
 		Map_TreeDBID_TreeDB:  make(map[uint]*TreeDB, 0),
 		Map_TreePtr_TreeDBID: make(map[*models.Tree]uint, 0),
 
-		db:    dbWrapper,
+		db:    db,
 		stage: stage,
 	}
 
