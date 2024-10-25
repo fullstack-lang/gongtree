@@ -96,7 +96,7 @@
 			"group": "build",
 			"args": [
 				"-skipNg",
-				" -skipGoModCommands"
+				"-skipGoModCommands"
 			]
 		},
 		{
