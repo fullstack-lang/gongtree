@@ -77,7 +77,8 @@
                 {{node.gongNode.TextAfterSecondCheckbox}}
             </div>
             <ng-container *ngFor="let button of node.gongNode.Buttons">
-                <button mat-icon-button (click)="onButtonClick($event, node, button)">
+                <button [id]="'button-' + button.Name" 
+                        mat-icon-button (click)="onButtonClick($event, node, button)">
                     <mat-icon *ngIf="button.SVGIcon == undefined" [ngStyle]="{'color':'rgba(0,0,0,.50)'}">{{button.Icon}}
                     </mat-icon>
                     <mat-icon *ngIf="button.SVGIcon" [ngStyle]="{'color':'rgba(0,0,0,.50)'}" svgIcon="{{button.SVGIcon.Name}}">
