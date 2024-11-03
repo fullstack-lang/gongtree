@@ -49,18 +49,20 @@ github.com/dustin/go-humanize
 # github.com/frankban/quicktest v1.14.6
 ## explicit; go 1.13
 github.com/frankban/quicktest
-# github.com/fullstack-lang/gong v0.0.0-20240913011432-f289a48b768e
+# github.com/fullstack-lang/gong v0.0.0-20241103163614-d4effe596f30
 ## explicit; go 1.23.1
 github.com/fullstack-lang/gong/go/controllers
+github.com/fullstack-lang/gong/go/db
 github.com/fullstack-lang/gong/go/fullstack
 github.com/fullstack-lang/gong/go/ignore
 github.com/fullstack-lang/gong/go/models
 github.com/fullstack-lang/gong/go/orm
 github.com/fullstack-lang/gong/ng-github.com-fullstack-lang-gong/projects
-# github.com/fullstack-lang/gongdoc v0.0.0-20240913010244-325e50c2e494
+# github.com/fullstack-lang/gongdoc v0.0.0-20241103105840-f74ac1cb313a
 ## explicit; go 1.23.1
 github.com/fullstack-lang/gongdoc/go/adapter
 github.com/fullstack-lang/gongdoc/go/controllers
+github.com/fullstack-lang/gongdoc/go/db
 github.com/fullstack-lang/gongdoc/go/diagrammer
 github.com/fullstack-lang/gongdoc/go/doc2svg
 github.com/fullstack-lang/gongdoc/go/fullstack
@@ -68,16 +70,18 @@ github.com/fullstack-lang/gongdoc/go/load
 github.com/fullstack-lang/gongdoc/go/models
 github.com/fullstack-lang/gongdoc/go/orm
 github.com/fullstack-lang/gongdoc/ng-github.com-fullstack-lang-gongdoc/projects
-# github.com/fullstack-lang/gongsvg v0.0.0-20240913010932-e9b7ccb0a930
+# github.com/fullstack-lang/gongsvg v0.0.0-20241103105841-f286ab811e06
 ## explicit; go 1.23.1
 github.com/fullstack-lang/gongsvg/go/controllers
+github.com/fullstack-lang/gongsvg/go/db
 github.com/fullstack-lang/gongsvg/go/fullstack
 github.com/fullstack-lang/gongsvg/go/models
 github.com/fullstack-lang/gongsvg/go/orm
 github.com/fullstack-lang/gongsvg/ng-github.com-fullstack-lang-gongsvg/projects
-# github.com/fullstack-lang/gongtable v0.0.0-20240913011207-ce6d25b2b86a
+# github.com/fullstack-lang/gongtable v0.0.0-20241103105841-2fefdcdcaded
 ## explicit; go 1.23.1
 github.com/fullstack-lang/gongtable/go/controllers
+github.com/fullstack-lang/gongtable/go/db
 github.com/fullstack-lang/gongtable/go/fullstack
 github.com/fullstack-lang/gongtable/go/models
 github.com/fullstack-lang/gongtable/go/orm
@@ -258,9 +262,6 @@ golang.org/x/arch/x86/x86asm
 golang.org/x/crypto/md4
 golang.org/x/crypto/ripemd160
 golang.org/x/crypto/sha3
-# golang.org/x/exp v0.0.0-20240909161429-701f63a606c0
-## explicit; go 1.22.0
-golang.org/x/exp/maps
 # golang.org/x/mod v0.21.0
 ## explicit; go 1.22.0
 golang.org/x/mod/internal/lazyregexp
@@ -313,6 +314,8 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
+# golang.org/x/tools v0.25.0
+## explicit; go 1.22.0
 # google.golang.org/protobuf v1.34.2
 ## explicit; go 1.20
 google.golang.org/protobuf/encoding/protowire
