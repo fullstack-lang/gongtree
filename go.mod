@@ -5,7 +5,7 @@ go 1.23.1
 require (
 	github.com/fullstack-lang/gong v0.0.0-20250225232038-40d9f94ffc08
 	github.com/fullstack-lang/gongdoc v0.0.0-20250225044213-210701a73ec5
-	github.com/fullstack-lang/gongtable v0.0.0-20250225044218-e43d323f71c6
+	github.com/fullstack-lang/gongtable v0.0.0-20250225232532-6f2091eed23f
 	github.com/fullstack-lang/maticons v0.0.0-20240913013021-27a7b8fd9369
 	github.com/gin-contrib/cors v1.7.3
 	github.com/gin-contrib/static v1.1.3
