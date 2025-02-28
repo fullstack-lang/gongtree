@@ -18,22 +18,19 @@ import * as gongtable from '@vendored_components/github.com/fullstack-lang/gongt
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  standalone: true,
-  imports: [
-    MatRadioModule,
-    FormsModule,
-    CommonModule,
-    MatButtonModule,
-    MatIconModule,
-
-    AngularSplitModule,
-
-    TreeComponent,
-    MaterialTableComponent,
-    MaterialFormComponent,
-  ]
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    imports: [
+        MatRadioModule,
+        FormsModule,
+        CommonModule,
+        MatButtonModule,
+        MatIconModule,
+        AngularSplitModule,
+        TreeComponent,
+        MaterialTableComponent,
+        MaterialFormComponent,
+    ]
 })
 export class AppComponent implements OnInit {
 
